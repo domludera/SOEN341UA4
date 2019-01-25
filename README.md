@@ -6,14 +6,18 @@ Develop a twitter like platform.
 
 ## Project
 
+This project....
 
 ## Team Members
 
-* Dominik Ludera
+* Dominik Ludera (domludera)
 
 ## Technologies
 
 ### Front End
+* HTML
+* CSS
+* Javascript
 * Bootstrap ?
 * Vue JS ?
 
