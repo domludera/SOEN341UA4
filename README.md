@@ -14,6 +14,7 @@ Develop a twitter like platform.
 ## Technologies
 
 ### Front End
-
+* Bootstrap ?
+* Vue JS ?
 
 ### Back End
