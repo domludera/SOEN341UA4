@@ -2,11 +2,11 @@
 
 ## Objective
 
-Develop a twitter like platform.
+Develop a Twitter-like Website.
 
 ## Project
 
-This project....
+This project is  about developing a twitter-like platform.  We have to develop a social networking microbloging service that allows users to write short posts called tweets, to like a tweet and follow other users.  
 
 ## Team Members
 
