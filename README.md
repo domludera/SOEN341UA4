@@ -10,7 +10,14 @@ This project....
 
 ## Team Members
 
-* Dominik Ludera (domludera)
+* Alec Adub
+* Andrew Marcos
+* Basel Kalalib Achabi
+* Dominik Ludera
+* John Estrada
+* Kevyn Bele-Binda
+* Michael Hanna
+* Navid Reza
 
 ## Technologies
 
