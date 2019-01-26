@@ -6,18 +6,18 @@ Develop a Twitter-like Website.
 
 ## Project
 
-This project is  about developing a twitter-like platform.  We have to develop a social networking microbloging service that allows users to write short posts called tweets, to like a tweet and follow other users.  
+This project is  about developing a twitter-like platform.  We have to develop a social networking microbloging service that allows users to write short posts called tweets, to like tweets and follow other users. More features will be added as we advance in the project
 
-## Team Members
+## Team Members / Usernames
 
-* Alec Adub
-* Andrew Marcos
-* Basel Kalalib Achabi
-* Dominik Ludera
-* John Estrada
-* Kevyn Bele-Binda
-* Michael Hanna
-* Navid Reza
+* Alec Adub / alecadub
+* Andrew Marcos / AAAnndrew
+* Basel Kalalib Achabi / BaselKal
+* Dominik Ludera / domludera
+* John Estrada /
+* Kevyn Bele-Binda / Freezky
+* Michael Hanna / hannamichael
+* Navid Reza / NavRez
 
 ## Technologies
 
