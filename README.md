@@ -25,7 +25,8 @@ This project is  about developing a twitter-like platform.  We have to develop a
 * HTML
 * CSS
 * Javascript
-* Bootstrap ?
+* Bootstrap
+* PHP
 * Vue JS ?
 
 ### Back End
