@@ -14,7 +14,7 @@ This project is  about developing a twitter-like platform.  We have to develop a
 * Andrew Marcos / AAAnndrew
 * Basel Kalalib Achabi / BaselKal
 * Dominik Ludera / domludera
-* John Estrada /
+* John Estrada / jestrada740
 * Kevyn Bele-Binda / Freezky
 * Michael Hanna / hannamichael
 * Navid Reza / NavRez
