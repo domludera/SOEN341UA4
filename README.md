@@ -2,7 +2,7 @@
 
 ## Objective
 
-To Develop a Twitter-like Website which allows users to conduct basic features like creating a profile, tweeting and following.
+To Develop a Twitter-like Website which allows users to conduct basic features like creating a profile, tweeting, following and viewing tweets made by other users.
 
 ## Project
 
