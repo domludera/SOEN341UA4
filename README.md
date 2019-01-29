@@ -1,4 +1,4 @@
-## SOEN 341
+# SOEN 341
 
 ## Objective
 
@@ -21,15 +21,13 @@ This project is  about developing a twitter-like platform.  We have to develop a
 
 ## Technologies
 
-Django
-
 ### Front End
 * HTML
 * CSS
 * Javascript
 * Bootstrap
 * PHP
-* Vue JS ?
+* Vue JS
 
 ### Back End
 * Python
