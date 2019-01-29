@@ -31,3 +31,6 @@ This project is  about developing a twitter-like platform.  We have to develop a
 
 ### Back End
 * Python
+
+### Database
+* MySQL
