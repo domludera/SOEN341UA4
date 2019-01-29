@@ -2,7 +2,7 @@
 
 ## Objective
 
-Develop a Twitter-like Website.
+To Develop a Twitter-like Website which allows users to conduct basic features like creating a profile, tweeting and following.
 
 ## Project
 
@@ -30,3 +30,4 @@ This project is  about developing a twitter-like platform.  We have to develop a
 * Vue JS ?
 
 ### Back End
+* Python
