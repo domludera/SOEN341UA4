@@ -21,6 +21,9 @@ This project is  about developing a twitter-like platform.  We have to develop a
 
 ## Technologies
 
+-Django
+-MySQL
+
 ### Front End
 * HTML
 * CSS
