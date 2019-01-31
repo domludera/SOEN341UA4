@@ -1,0 +1,5 @@
+--tropiteal: #00A8C6
+--teal drop: #40C0CB
+--whitetrash: #F9F2E7
+--atomic bikini: #AEE239
+--feeble week: #8FBE00
