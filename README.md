@@ -1,12 +1,18 @@
 # SOEN 341
 
+## Description
+
+This project is  about developing a twitter-like platform.  We have to develop a social networking microbloging service that allows users to write short posts called tweets, to like tweets and follow other users. More features will be added as we advance in the project
+
 ## Objective
 
 To Develop a Twitter-like Website which allows users to conduct basic features like creating a profile, tweeting, following and viewing tweets made by other users.
 
-## Project
+## Core Features
 
-This project is  about developing a twitter-like platform.  We have to develop a social networking microbloging service that allows users to write short posts called tweets, to like tweets and follow other users. More features will be added as we advance in the project
+* Post a tweet
+* Like a tweet
+* Share a tweet (retweet)
 
 ## Team Members / Usernames
 
@@ -30,7 +36,7 @@ This project is  about developing a twitter-like platform.  We have to develop a
 * Vue JS
 
 ### Back End
-* Python
+* Django (Python)
 
 ### Database
-* MySQL
+* Postgresql
