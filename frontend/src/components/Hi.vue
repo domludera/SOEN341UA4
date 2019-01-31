@@ -26,7 +26,7 @@
         </b-form-input>
       </b-form-group>
       <b-button type="submit" variant="primary">Submit</b-button>
-      <b-button type="reset" variant="danger">Reset</b-button>
+      <b-button to="Hello" type="button" variant="danger">Reset</b-button>
     </b-form>
     </div>
   </div>
@@ -62,10 +62,9 @@
 </script>
 <style>
   .jumbotron{
-    background: #F9F2E7;
-    color: #00A8C6;
+    background: white;
+    color: darkslategrey;
     margin: 20%;
-    border: #AEE239 5px solid;
-    border-radius: 25px;
+    box-shadow: 0 0 10px 1px grey;
   }
 </style>
