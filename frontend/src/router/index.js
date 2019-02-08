@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hi from '@/components/Hi'
-import Hello from '@/components/Hello'
+import LoginComponent from '@/components/login.vue'
+import SecureComponent from '@/components/secure.vue'
 
 Vue.use(Router)
 
@@ -9,13 +9,19 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Hi',
-      component: Hi
+      redirect: {
+        name: 'login'
+      }
     },
     {
-      path: '/hello',
-      name: 'Hello',
-      component: Hello
+      path: '/login',
+      name: 'login',
+      component: LoginComponent
+    },
+    {
+      path: '/secure',
+      name: 'secure',
+      component: SecureComponent
     }
   ]
 })

@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "Dominik Ludera <31933091+domludera@users.noreply.github.com>",
+  "author": "domludera <31933091+domludera@users.noreply.github.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -19,6 +19,7 @@
     "npm": "^6.7.0",
     "popper.js": "^1.12.9",
     "vue": "^2.5.2",
+    "vue-cookies": "^1.5.12",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
