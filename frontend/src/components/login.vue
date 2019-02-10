@@ -4,6 +4,12 @@
     <input type="text" name="username" v-model="input.username" placeholder="Username" />
     <input type="password" name="password" v-model="input.password" placeholder="Password" />
     <button type="button" v-on:click="login()">Login</button>
+
+    <br/>
+    <br/>
+    <a href="">Forgot your password</a>
+    <br/>
+    <a href="">Sign up</a>
   </div>
 </template>
 
