@@ -20,21 +20,3 @@ new Vue({
   template: '<App/>',
   components: { App }
 })
-
-Vue.component('button-counter', {
-  data: function () {
-    return {
-      count: 0
-    }
-  },
-  template: '<button id="myCounter" v-on:click="updateCount()">You clicked me {{ count }} times.</button>',
-  methods: {
-    updateCount () {
-      console.log(++this.count)
-    }
-  }
-})
-
-new Vue({
-  el: '#components-demo'
-})
