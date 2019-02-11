@@ -3,8 +3,9 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <h1>bla bla blaaa.</h1>
-    <p  v-if="like">  <i v-on:click="ToggleColor" class="fa fa-heart" style="font-size:24px;color:darkred"></i></p>
-    <p v-else="like">  <i v-on:click="ToggleColor" class="fa fa-heart" style="font-size:24px;color:grey"></i></p>
+    <a  v-if="like">  <i v-on:click="ToggleColor" class="fa fa-heart" style="font-size:20px;color:darkred"></i></a>
+    <a v-else="like">  <i v-on:click="ToggleColor" class="fa fa-heart" style="font-size:20px;color:grey"></i></a>
+      <a> {{counterLike}} </a>
   </div>
 </template>
 
@@ -13,15 +14,18 @@
     name: 'Login',
     data () {
       return {
-        like: false
+        like: false,
+        counterLike: 78
       }
     },
     methods: {
       ToggleColor () {
         if (this.like === true) {
           this.like = false
+          this.counterLike--
         } else if (this.like === false) {
           this.like = true
+          this.counterLike++
         }
       }
     }
