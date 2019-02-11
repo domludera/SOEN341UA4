@@ -75,8 +75,18 @@ WSGI_APPLICATION = 'twitter_clone.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dev',
+        'USER': 'dev',
+        'PASSWORD': 'root',
+        'HOST': '35.238.157.110',
+        'PORT': '5432',
+        'OPTIONS': {
+            'sslmode': 'verify-ca',
+            'sslrootcert': os.environ['SERVER_CA'],
+            "sslcert": os.environ['CLIENT_CERT'],
+            "sslkey": os.environ['CLIENT_KEY'],
+        }
     }
 }
 
