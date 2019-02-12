@@ -2,7 +2,7 @@
   <div id="home">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <h1>bla bla blaaa.</h1>
+    <h1>Andrew Marcos & Michael Hanna</h1>
     <a  v-if="like">  <i v-on:click="ToggleColor" class="fa fa-heart" style="font-size:20px;color:darkred"></i></a>
     <a v-else="like">  <i v-on:click="ToggleColor" class="fa fa-heart" style="font-size:20px;color:grey"></i></a>
       <a> {{counterLike}} </a>
