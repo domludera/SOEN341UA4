@@ -11,7 +11,6 @@
       return {
         authenticated: false,
         mockAccount: {
-          username: '123',
           password: '123'
         }
       }

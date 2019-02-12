@@ -3,8 +3,6 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
-    <h6>{{tweet}}</h6>
-
     <a  v-if="retweet">  <i v-on:click="RetweetButton" class="fa fa-retweet" style="font-size:15px;color:#73cd00"></i></a>
     <a v-else="retweet">  <i v-on:click="RetweetButton" class="fa fa-retweet" style="font-size:15px;color:grey"></i></a>
     <a> {{counterRetweet}} </a>
@@ -12,20 +10,18 @@
     <a  v-if="like">  <i v-on:click="LikeButton" class="fa fa-heart" style="font-size:15px;color:darkred"></i></a>
     <a v-else="like">  <i v-on:click="LikeButton" class="fa fa-heart" style="font-size:15px;color:grey"></i></a>
     <a> {{counterLike}} </a>
-    <hr>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'Login',
+    name: 'likeRtBtn',
     data () {
       return {
         like: false,
         retweet: false,
         counterRetweet: 50,
-        counterLike: 78,
-        tweet: 'Andrew Marcos - Michael Hanna'
+        counterLike: 78
       }
     },
     methods: {
@@ -50,9 +46,6 @@
     }
   }
 </script>
-<style type="text/css">
-.fa_custom_like {
-color: #FFFFFF
-}
+<style>
 
 </style>
