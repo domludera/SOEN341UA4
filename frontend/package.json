@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "Dominik Ludera <31933091+domludera@users.noreply.github.com>",
+  "author": "domludera <31933091+domludera@users.noreply.github.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -14,11 +14,13 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
-    "vue": "^2.5.2",
-    "vue-router": "^3.0.1",
     "bootstrap": "^4.0.0-beta.2",
     "bootstrap-vue": "latest",
-    "popper.js": "^1.12.9"
+    "npm": "^6.7.0",
+    "popper.js": "^1.12.9",
+    "vue": "^2.5.2",
+    "vue-cookies": "^1.5.12",
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

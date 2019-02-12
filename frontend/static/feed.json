@@ -1,0 +1,25 @@
+{
+  "tweets": [
+    {
+      "id": 0,
+    "author": "John",
+    "date": "7:00 02-02-19",
+    "message": "Hello World!",
+    "likes": 34
+    },
+    {
+      "id": 1,
+      "author": "Johnny",
+      "date": "8:00 02-02-19",
+      "message": "Hello World!!",
+      "likes": 35
+    },
+    {
+      "id": 2,
+      "author": "Johnson",
+      "date": "9:00 02-02-19",
+      "message": "Hello World!!!",
+      "likes": 36
+    }
+  ]
+}

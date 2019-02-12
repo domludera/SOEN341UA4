@@ -1,22 +1,43 @@
 <template>
-  <div id="app">
-    <router-view></router-view>
+  <div id='app'>
+    <router-view @authenticated='setAuthenticated' />
   </div>
 </template>
 
 <script>
-export default {
-  name: 'app'
-}
+  export default {
+    name: 'App',
+    data () {
+      return {
+        authenticated: false,
+        mockAccount: {
+          password: '123'
+        }
+      }
+    },
+    mounted () {
+      if (!this.authenticated) {
+        this.$router.replace({ name: 'login' })
+      }
+    },
+    methods: {
+      setAuthenticated (status) {
+        this.authenticated = status
+      }
+    }
+  }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  body {
+    background-color: #F0F0F0;
+  }
+  h1 {
+    padding: 0;
+    margin-top: 0;
+  }
+  #app {
+    width: 1024px;
+    margin: auto;
+  }
 </style>
