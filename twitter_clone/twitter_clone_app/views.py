@@ -6,8 +6,14 @@ def twitter(request):
 
 
 def login(request):
-    return render(request, 'twitter_clone_app/login.html')
+    context = {
+        'title': 'Login page',
+    }
+    return render(request, 'twitter_clone_app/login.html', context)
 
 
 def home(request):
-    return render(request, 'twitter_clone_app/home.html')
+    context = {
+        'title': 'Home page',
+    }
+    return render(request, 'twitter_clone_app/home.html', context)
