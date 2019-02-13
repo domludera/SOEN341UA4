@@ -85,6 +85,7 @@
                 <b-col class="mainColumns column1">
                     <div class="jumbotron">
                         <h1>Trending</h1>
+                        <p id="trendingChirps"></p>
                     </div>
                 </b-col>
 
@@ -92,25 +93,25 @@
                 <b-col class="mainColumns column2" sm="6">
                     <div class="jumbotron">
                         <b-input-group>
-                            <b-btn v-on:click="">Post!</b-btn>
+                            <b-input placeholder="What's new?"></b-input>
+                            <b-btn v-on:click="test('hello')">Post!</b-btn>
                         </b-input-group>
                     </div>
 
 
                     <!-- Iterate threw post in database -->
 
-                    <div class="app" xmlns:v-on="http://www.w3.org/1999/xhtml">
+                    <div class="feed" xmlns:v-on="http://www.w3.org/1999/xhtml">
                         <p id="feedChirp">author<br>
-                            message
-                            <a  v-if="retweet">  <i v-on:click="retweet = true" class="fa fa-retweet" style="font-size:15px;color:#73cd00"></i></a>
-                            <a v-else="retweet">  <i v-on:click="retweet = false" class="fa fa-retweet" style="font-size:15px;color:grey"></i></a>
+                            message<br><br>
+                            <b-btn v-if="retweet" v-on:click="retweetButton()"><i class="fa fa-retweet" style="font-size:15px;color:#73cd00"></i></b-btn>
+                            <b-btn v-else="retweet" v-on:click="retweetButton()"><i class="fa fa-retweet" style="font-size:15px;color:white"></i></b-btn>
                             <a> [[ counterRetweet ]] </a>
                             &ensp;
-                            <a  v-if="like">  <i v-on:click="" class="fa fa-heart" style="font-size:15px;color:darkred"></i></a>
-                            <a v-else="like">  <i v-on:click="like = false" class="fa fa-heart" style="font-size:15px;color:grey"></i></a>
+                            <b-btn v-if="like" v-on:click="likeButton()"><i class="fa fa-heart" style="font-size:15px;color:darkred"></i></b-btn>
+                            <b-btn v-else="like" v-on:click="likeButton()"><i class="fa fa-heart" style="font-size:15px;color:white"></i></b-btn>
                             <a> [[ counterLike ]] </a>
                         </p>
-
                     </div>
 
                     <!-- end of iteration -->
@@ -137,12 +138,32 @@
         new Vue({
             delimiters: ['[[', ']]'],
             el: '#app',
+            methods: {
+                likeButton: function () {
+                    if (this.like === true) {
+                        this.like = false;
+                        this.counterLike--;
+                    } else if (this.like === false) {
+                        this.like = true;
+                        this.counterLike++;
+                    }
+                },
+                retweetButton: function () {
+                    if (this.retweet === true) {
+                        this.retweet = false;
+                        this.counterRetweet--;
+                    } else if (this.retweet === false) {
+                        this.retweet = true;
+                        this.counterRetweet++;
+                    }
+                }
+            },
             data: {
                 like: false,
                 retweet: false,
                 counterRetweet: 50,
                 counterLike: 78
-            }
+            },
         })
     </script>
 
