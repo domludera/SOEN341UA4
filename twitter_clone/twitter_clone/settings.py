@@ -57,7 +57,7 @@ ROOT_URLCONF = 'twitter_clone.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -86,9 +86,9 @@ DATABASES = {
         'PORT': '5432',
         'OPTIONS': {
             'sslmode': 'verify-ca',
-            'sslrootcert': os.environ['SERVER_CA'],
-            "sslcert": os.environ['CLIENT_CERT'],
-            "sslkey": os.environ['CLIENT_KEY'],
+            'sslrootcert': os.environ['SERVER_CA_341'],
+            "sslcert": os.environ['CLIENT_CERT_341'],
+            "sslkey": os.environ['CLIENT_KEY_341'],
         }
     }
 }
@@ -131,3 +131,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOGIN_REDIRECT_URL = '/admin'
