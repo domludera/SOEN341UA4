@@ -11,3 +11,14 @@
 
 \.idea/inspectionProfiles
 *.pem
+twitter_clone/twitter_clone/__pycache__/__init__\.cpython-36\.pyc
+
+twitter_clone/twitter_clone/__pycache__/settings\.cpython-36\.pyc
+
+twitter_clone/twitter_clone/__pycache__/urls\.cpython-36\.pyc
+
+*.pyc
+
+*.xml
+
+*.iml
