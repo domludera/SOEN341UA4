@@ -86,9 +86,9 @@ DATABASES = {
         'PORT': '5432',
         'OPTIONS': {
             'sslmode': 'verify-ca',
-            'sslrootcert': os.environ['SERVER_CA'],
-            "sslcert": os.environ['CLIENT_CERT'],
-            "sslkey": os.environ['CLIENT_KEY'],
+            'sslrootcert': os.environ['SERVER_CA_341'],
+            "sslcert": os.environ['CLIENT_CERT_341'],
+            "sslkey": os.environ['CLIENT_KEY_341'],
         }
     }
 }
