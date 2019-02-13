@@ -2,34 +2,30 @@
 
 {% block content %}
 
-    <div class="container">
-        <div class="row mx-auto pt-5">
-            <div class="col-md-4 col-md-offset-4 mx-auto">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Please sign in</h3>
-                    </div>
-                    <div class="panel-body">
-                        <form accept-charset="UTF-8" role="form">
-                            <fieldset>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="text">
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input name="remember" type="checkbox" value="Remember Me"> Remember Me
-                                    </label>
-                                </div>
-                                <input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
-                            </fieldset>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div id="login" xmlns:v-on="http://www.w3.org/1999/xhtml">
+        <h1>Login</h1>
+        <input type="text" name="username" v-model="input.username" placeholder="Username" />
+        <input type="password" name="password" v-model="input.password" placeholder="Password" />
+        <button type="button" v-on:click="">Login</button>
+
+        <br/>
+        <br/>
+        <a href="">Forgot your password</a>
+        <br/>
+        <a href="">Sign up</a>
     </div>
+
+    <script>
+        new Vue({
+            delimiters: ['[[', ']]'],
+            el: '#login',
+            data: {
+                input: {
+                    username:'',
+                    password:'',
+                }
+            }
+        })
+    </script>
 
 {% endblock content %}

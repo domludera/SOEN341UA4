@@ -1,6 +1,151 @@
 {% extends "twitter_clone_app/template.html" %}
 
 {% block content %}
-    <p>Test</p>
+
+    <!-- Style for the page -->
+
+    <style xmlns:v-on="http://www.w3.org/1999/xhtml">
+        .logoutBtn{
+            text-decoration: none;
+            background-color: lightcoral;
+            color: white;
+        }
+        .mainColumns{
+            min-height: 100px;
+            max-height: fit-content;
+        }
+
+        .jumbotron{
+            margin-top: 10px;
+            padding: 0;
+            background-color: white;
+        }
+
+        .feed{
+            margin-top: 5px;
+            background-color: white;
+            border-radius: 5px;
+        }
+        #feedChirp{
+            margin: auto;
+            padding: 1.5em;
+            border: aqua solid 1px;
+            border-radius: 5px;
+        }
+
+        #trendingChirps{
+            color: darkslategrey;
+        }
+    </style>
+
+    <!-- End of style -->
+
+    <!-- Html for the page -->
+
+    <div id="app">
+        <b-navbar toggleable="md" type="dark" variant="info">
+
+            <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
+
+            <b-navbar-brand href="#">Chirp.</b-navbar-brand>
+
+            <b-collapse is-nav id="nav_collapse">
+
+                <b-navbar-nav>
+                    <b-nav-item href="#">Trending</b-nav-item>
+                    <b-nav-item href="#" disabled>New</b-nav-item>
+                </b-navbar-nav>
+
+                <!-- Right aligned nav items -->
+                <b-navbar-nav class="ml-auto">
+
+                    <b-nav-form>
+                        <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="Search"/>
+                        <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
+                    </b-nav-form>
+
+                    <b-nav-item-dropdown right>
+                        <!-- Using button-content slot -->
+                        <template slot="button-content">
+                            <em></em>
+                        </template>
+                        <b-dropdown-item href="#">Profile</b-dropdown-item>
+                        <b-dropdown-item href="#">Settings</b-dropdown-item>
+                        <b-dropdown-divider></b-dropdown-divider>
+                        <b-dropdown-item class="logoutBtn" to='' v-on:click.native='' replace>Logout</b-dropdown-item>
+                    </b-nav-item-dropdown>
+                </b-navbar-nav>
+
+            </b-collapse>
+        </b-navbar>
+        <b-container>
+            <b-row style="text-align: center">
+
+
+                <b-col class="mainColumns column1">
+                    <div class="jumbotron">
+                        <h1>Trending</h1>
+                    </div>
+                </b-col>
+
+
+                <b-col class="mainColumns column2" sm="6">
+                    <div class="jumbotron">
+                        <b-input-group>
+                            <b-btn v-on:click="">Post!</b-btn>
+                        </b-input-group>
+                    </div>
+
+
+                    <!-- Iterate threw post in database -->
+
+                    <div class="app" xmlns:v-on="http://www.w3.org/1999/xhtml">
+                        <p id="feedChirp">author<br>
+                            message
+                            <a  v-if="retweet">  <i v-on:click="retweet = true" class="fa fa-retweet" style="font-size:15px;color:#73cd00"></i></a>
+                            <a v-else="retweet">  <i v-on:click="retweet = false" class="fa fa-retweet" style="font-size:15px;color:grey"></i></a>
+                            <a> [[ counterRetweet ]] </a>
+                            &ensp;
+                            <a  v-if="like">  <i v-on:click="" class="fa fa-heart" style="font-size:15px;color:darkred"></i></a>
+                            <a v-else="like">  <i v-on:click="like = false" class="fa fa-heart" style="font-size:15px;color:grey"></i></a>
+                            <a> [[ counterLike ]] </a>
+                        </p>
+
+                    </div>
+
+                    <!-- end of iteration -->
+
+                </b-col>
+
+
+                <b-col class="mainColumns column3">
+                    <div class="jumbotron">
+                        <div class="profilePic">profilePic</div>
+                        <div class="profileStats">profileStats</div>
+
+                    </div>
+                </b-col>
+            </b-row>
+        </b-container>
+    </div>
+
+    <!-- End of html -->
+
+    <!-- Vue.js for home -->
+
+    <script>
+        new Vue({
+            delimiters: ['[[', ']]'],
+            el: '#app',
+            data: {
+                like: false,
+                retweet: false,
+                counterRetweet: 50,
+                counterLike: 78
+            }
+        })
+    </script>
+
+    <!-- End of View.js -->
 
 {% endblock content %}
