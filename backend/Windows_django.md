@@ -1,6 +1,6 @@
 > Download [get-pip](https://pip.pypa.io/en/latest/installing/#id7) <br/>
 ##### python get-pip.py --user<br/>
-install virtual environment wrapper<br/> 
+> install virtual environment wrapper<br/> 
 ##### pip install virtualenvwrapper-win<br/>
 > create some project<br/>
 ##### mkvirtualenv twitter_project<br/>
