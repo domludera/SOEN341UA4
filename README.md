@@ -1,5 +1,7 @@
 # SOEN 341
 
+![Chirp](https://i.ibb.co/crv58YB/chirp.png)
+
 ## Description
 
 This project is  about developing a twitter-like platform.  We have to develop a social networking microbloging service that allows users to write short posts called tweets, to like tweets and follow other users. More features will be added as we advance in the project
