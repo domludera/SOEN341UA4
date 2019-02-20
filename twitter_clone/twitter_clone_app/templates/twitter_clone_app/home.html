@@ -58,6 +58,13 @@
 
 
                 <b-col class="mainColumns column2" sm="6">
+                    {% if messages %}
+                        {% for foo in messages %}
+                            <div>
+                                {{ foo }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
                     <div class="jumbotron">
                         <b-input-group>
                             <b-input placeholder="What's new?"></b-input>
