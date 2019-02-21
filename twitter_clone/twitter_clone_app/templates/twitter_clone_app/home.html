@@ -1,6 +1,6 @@
 {% extends "twitter_clone_app/template.html" %}
 {% load static %}
-{% load static  %}
+{% load static %}
 
 {% block content %}
 
@@ -13,8 +13,9 @@
             <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
 
             <b-navbar-brand href="#">
-                <img src="{% static 'twitter_clone_app/images/chirp.svg' %}"  alt="BV" />
-                Chirp.</b-navbar-brand>
+                <img src="{% static 'twitter_clone_app/images/chirp.svg' %}" alt="BV"/>
+                Chirp.
+            </b-navbar-brand>
 
 
             <b-collapse is-nav id="nav_collapse">
@@ -75,22 +76,30 @@
 
 
                     <!-- Iterate threw post in database -->
-                {% for chirp in chirpList %}
-                    <div class="feed" xmlns:v-on="http://www.w3.org/1999/xhtml">
-                        <p id="feedChirp">{{ chirp.author }}<br>
-                            {{ chirp.tweet_text }}<br><br>
-                            <b-btn v-if="retweet" v-on:click="retweetButton()"><i class="fa fa-retweet" style="font-size:15px;color:#73cd00"></i></b-btn>
-                            <b-btn v-else="retweet" v-on:click="retweetButton()"><i class="fa fa-retweet" style="font-size:15px;color:white"></i></b-btn>
-                            <a> {{ chirp.num_like }} </a>
-                            &ensp;
-                            <b-btn v-if="like" v-on:click="likeButton()"><i class="fa fa-heart" style="font-size:15px;color:darkred"></i></b-btn>
-                            <b-btn v-else="like" v-on:click="likeButton()"><i class="fa fa-heart" style="font-size:15px;color:white"></i></b-btn>
-                            <a> {{ chirp.num_share }} </a>
-                            </br></br>
-                            {{ chirp.date_posted }}
-                        </p>
-                    </div>
-                {% endfor %}
+                    {% for chirp in chirpList reversed %}
+                        <div class="feed" xmlns:v-on="http://www.w3.org/1999/xhtml">
+                            <p id="feedChirp">{{ chirp.author }}<br>
+                                {{ chirp.tweet_text }}<br><br>
+                                <b-btn v-if="retweet" v-on:click="retweetButton()"><i class="fa fa-retweet"
+                                                                                      style="font-size:15px;color:#73cd00"></i>
+                                </b-btn>
+                                <b-btn v-else="retweet" v-on:click="retweetButton()"><i class="fa fa-retweet"
+                                                                                        style="font-size:15px;color:white"></i>
+                                </b-btn>
+                                <a> {{ chirp.num_like }} </a>
+                                &ensp;
+                                <b-btn v-if="like" v-on:click="likeButton()"><i class="fa fa-heart"
+                                                                                style="font-size:15px;color:darkred"></i>
+                                </b-btn>
+                                <b-btn v-else="like" v-on:click="likeButton()"><i class="fa fa-heart"
+                                                                                  style="font-size:15px;color:white"></i>
+                                </b-btn>
+                                <a> {{ chirp.num_share }} </a>
+                                </br></br>
+                                {{ chirp.date_posted }}
+                            </p>
+                        </div>
+                    {% endfor %}
 
                     <!-- end of iteration -->
 

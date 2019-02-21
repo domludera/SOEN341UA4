@@ -1,5 +1,10 @@
 from django import forms
+from .models import Chirp
 
 
-class HomeForm(forms.Form):
-    chirp = forms.CharField(label='', required=False)
+class HomeForm(forms.ModelForm):
+    tweet_text = forms.CharField(label='', required=False)
+
+    class Meta:
+        model = Chirp
+        fields = ('tweet_text',)
