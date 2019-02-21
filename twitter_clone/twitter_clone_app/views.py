@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
+from .models import Chirp
+from django.views.generic import ListView
+from .forms import HomeForm
 
 
 def twitter(request):
@@ -24,8 +27,27 @@ def registration(request):
     return render(request, 'twitter_clone_app/registration.html', context)
 
 
-def home(request):
-    context = {
-        'title': 'Home page',
-    }
-    return render(request, 'twitter_clone_app/home.html', context)
+# def home(request):
+#     context = {
+#         'title': 'Home page',
+#         'chirpList': Chirp.objects.all(),
+#     }
+#     return render(request, 'twitter_clone_app/home.html', context)
+
+
+class HomeView(ListView):
+    model = Chirp
+    template_name = 'twitter_clone_app/home.html'
+    context_object_name = 'chirp'
+    ordering = ['-date_posted']
+    form = HomeForm
+
+    def get(self, request):
+        context = {
+            'title': 'Home page',
+            'chirpList': self.model.objects.all(),
+            'form': self.form,
+        }
+        return render(request, self.template_name, context)
+
+
