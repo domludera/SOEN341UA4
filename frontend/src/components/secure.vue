@@ -26,7 +26,7 @@
             <template slot="button-content">
               <em>{{user}}</em>
             </template>
-            <b-dropdown-item href="#">Profile</b-dropdown-item>
+            <b-dropdown-item href="/profile">Profile</b-dropdown-item>
             <b-dropdown-item href="#">Settings</b-dropdown-item>
             <b-dropdown-divider></b-dropdown-divider>
             <b-dropdown-item class="logoutBtn" to='/login' v-on:click.native='logout()' replace>Logout</b-dropdown-item>
