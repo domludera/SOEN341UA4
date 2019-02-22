@@ -10,7 +10,12 @@
     <a  v-if="like">  <i v-on:click="LikeButton" class="fa fa-heart" style="font-size:15px;color:darkred"></i></a>
     <a v-else="like">  <i v-on:click="LikeButton" class="fa fa-heart" style="font-size:15px;color:grey"></i></a>
     <a> {{counterLike}} </a>
+
   </div>
+</template>
+
+
+
 </template>
 
 <script>
