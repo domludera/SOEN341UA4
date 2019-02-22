@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import LoginComponent from '@/components/login.vue'
 import SecureComponent from '@/components/secure.vue'
 import homeComponent from '@/components/home.vue'
+import profileComponent from '@/components/profile.vue'
 
 Vue.use(Router)
 
@@ -23,6 +24,11 @@ export default new Router({
       path: '/home',
       name: 'home',
       component: homeComponent
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: profileComponent
     },
     {
       path: '/secure',
