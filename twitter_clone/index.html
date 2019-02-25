@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>twitter_clone</title>
+  </head>
+  <body>
+    {% load render_bundle from webpack_loader %}
+    <div id="app">
+	    <app></app>
+    </div>
+	    {% render_bundle 'main' %}
+  </body>
+</html>
