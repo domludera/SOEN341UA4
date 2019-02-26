@@ -16,7 +16,7 @@
   "dependencies": {
     "bootstrap": "^4.0.0-beta.2",
     "bootstrap-vue": "latest",
-    "npm": "^6.7.0",
+    "npm": "^6.8.0",
     "popper.js": "^1.12.9",
     "vue": "^2.5.2",
     "vue-cookies": "^1.5.12",
