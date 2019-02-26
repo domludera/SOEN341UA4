@@ -1,7 +1,7 @@
 <template>
   <div id="login">
     <div class="jumbotron">
-      <img src="../assets/logo.png" alt="logo">
+      <img id="mainlogo" src="../assets/logo.png" alt="logo">
     <h1>Login</h1>
     <input type="text" name="username" v-model="input.username" placeholder="Username" />
     <input type="password" name="password" v-model="input.password" placeholder="Password" />
@@ -47,8 +47,9 @@
 
 <style scoped>
 
-img{
+#mainlogo{
   transform: scale(0.2);
-  text-align: center;
+  text-align: left;
+  align: middle;
 }
 </style>
