@@ -14,7 +14,7 @@ To Develop a Twitter-like Website which allows users to conduct basic features l
 
 * Post a tweet
 * Like a tweet
-* Share a tweet (retweet)
+* Follow a user
 
 ## Team Members / Usernames
 
