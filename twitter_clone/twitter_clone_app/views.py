@@ -1,0 +1,61 @@
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.contrib.auth.forms import UserCreationForm
+from .models import Chirp
+from django.views.generic import ListView
+from .forms import HomeForm
+from django.contrib.auth import authenticate, login
+
+
+def twitter(request):
+    return render(request, 'twitter_clone_app/twitter.html')
+
+
+def registration(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            fresh_user = form.save()
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Welcome {username} !')
+            fresh_user = authenticate(username=form.cleaned_data['username'],
+                                      password=form.cleaned_data['password1'],
+                                      )
+            login(request, fresh_user)
+            return redirect('home')
+    else:
+        form = UserCreationForm()
+    context = {
+        'title': 'Registration page',
+        'form': form,
+    }
+    return render(request, 'twitter_clone_app/registration.html', context)
+
+
+class HomeView(ListView):
+    model = Chirp
+    template_name = 'twitter_clone_app/home.html'
+    context_object_name = 'chirp'
+    form = HomeForm
+
+    def get(self, request):
+        context = {
+            'title': 'Home page',
+            'chirpList': self.model.objects.all(),
+            'form': self.form,
+        }
+        return render(request, self.template_name, context)
+
+    def post(self, request):
+        form = HomeForm(request.POST)
+        if form.is_valid():
+            chirp = form.save(commit=False)
+            chirp.author = request.user
+            chirp.save()
+            return redirect('home')
+        context = {
+            'title': 'Home page',
+            'chirpList': self.model.objects.all(),
+            'form': self.form,
+        }
+        return render(request, self.template_name, context)
