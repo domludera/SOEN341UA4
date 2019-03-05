@@ -81,6 +81,8 @@
                             <p id="feedChirp">{{ chirp.author }}<br>
                                 {{ chirp.tweet_text }}<br><br>
 
+                            Number of like :  {{ chirp.likes.all.count }}
+
                             <form method="post">
                             {% csrf_token %}
                             <button type="submit" name="chirp" value="{{ chirp.id }}" class="btn-primary">Like</button>

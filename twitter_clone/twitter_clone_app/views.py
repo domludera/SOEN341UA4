@@ -63,5 +63,9 @@ class HomeView(ListView):
             return render(request, self.template_name, context)
         elif 'chirp' in request.POST:
             chirp_liked = get_object_or_404(Chirp, id=request.POST.get('chirp'))
-            chirp_liked.likes.add(request.user)
+            if chirp_liked.likes.filter(id=request.user.id).exists():
+                chirp_liked.likes.remove(request.user)
+            else:
+                chirp_liked.likes.add(request.user)
+
             return redirect('home')
