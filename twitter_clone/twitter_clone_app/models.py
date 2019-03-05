@@ -8,3 +8,7 @@ class Chirp(models.Model):
     date_posted = models.DateTimeField(auto_now_add=True)
     num_like = models.PositiveSmallIntegerField(default=0)
     num_share = models.PositiveSmallIntegerField(default=0)
+    likes = models.ManyToManyField(User, related_name='likes', blank=True)
+
+    def total_likes(self):
+        return self.likes.count()

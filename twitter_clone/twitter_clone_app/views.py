@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import get_object_or_404
 from .models import Chirp
 from django.views.generic import ListView
 from .forms import HomeForm
@@ -47,15 +48,20 @@ class HomeView(ListView):
         return render(request, self.template_name, context)
 
     def post(self, request):
-        form = HomeForm(request.POST)
-        if form.is_valid():
-            chirp = form.save(commit=False)
-            chirp.author = request.user
-            chirp.save()
+        if 'post' in request.POST:
+            form = HomeForm(request.POST)
+            if form.is_valid():
+                chirp = form.save(commit=False)
+                chirp.author = request.user
+                chirp.save()
+                return redirect('home')
+            context = {
+                'title': 'Home page',
+                'chirpList': self.model.objects.all(),
+                'form': self.form,
+            }
+            return render(request, self.template_name, context)
+        elif 'chirp' in request.POST:
+            chirp_liked = get_object_or_404(Chirp, id=request.POST.get('chirp'))
+            chirp_liked.likes.add(request.user)
             return redirect('home')
-        context = {
-            'title': 'Home page',
-            'chirpList': self.model.objects.all(),
-            'form': self.form,
-        }
-        return render(request, self.template_name, context)
