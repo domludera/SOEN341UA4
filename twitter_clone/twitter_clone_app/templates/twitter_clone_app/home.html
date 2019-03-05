@@ -77,8 +77,8 @@
 
                     <!-- Iterate threw post in database -->
                     {% for chirp in chirpList reversed %}
-                        <div class="feed" xmlns:v-on="http://www.w3.org/1999/xhtml">
-                            <p id="feedChirp">{{ chirp.author }}<br>
+                        <div id="feedChirp">
+                            <p>{{ chirp.author }}<br>
                                 {{ chirp.tweet_text }}<br><br>
 
                             Number of like :  {{ chirp.likes.all.count }}
@@ -89,7 +89,7 @@
 
                             </form>
 
-                            </br></br>
+                            </br>
                             {{ chirp.date_posted }}
                             </p>
                         </div>
