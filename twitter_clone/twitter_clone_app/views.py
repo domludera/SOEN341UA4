@@ -35,7 +35,10 @@ def registration(request):
 
 
 def profile(request):
-    return render(request, 'twitter_clone_app/profile.html')
+    context = {
+        'chirpList': Chirp.objects.all()
+    }
+    return render(request, 'twitter_clone_app/profile.html', context)
 
 
 class HomeView(ListView):

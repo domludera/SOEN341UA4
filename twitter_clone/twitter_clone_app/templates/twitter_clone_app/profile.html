@@ -1,10 +1,38 @@
 {% extends "twitter_clone_app/template.html" %}
 
 {% block content %}
-    {{ user.username }}
-    <p>
-    Followers: {{ user.userprofile.followers.all.count }}
-    </p>
+
+    <b-col class="mainColumns column1">
+        <div class="jumbotron">
+            {{ user.username }}
+            <p>
+                Followers: {{ user.userprofile.followers.all.count }}
+            </p>
+        </div>
+    </b-col>
+    <b-col class="mainColumns column2" sm="6">
+        {% for chirp in chirpList reversed %}
+            {% if chirp.author.id == user.id %}
+                <div id="feedChirp">
+                    <p>{{ chirp.author }}<br>
+                        {{ chirp.tweet_text }}<br><br>
+
+                        Number of like : {{ chirp.likes.all.count }}<br>
+
+
+                        <button name="chirp" value="{{ chirp.id }}" class="btn-primary">Like</button>
+
+
+                        </br>
+                        {{ chirp.date_posted }}
+                    </p>
+                </div>
+            {% endif %}
+
+        {% endfor %}
+
+    </b-col>
+
 
 
 
