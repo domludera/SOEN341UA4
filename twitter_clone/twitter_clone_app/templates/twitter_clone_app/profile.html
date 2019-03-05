@@ -1,0 +1,11 @@
+{% extends "twitter_clone_app/template.html" %}
+
+{% block content %}
+    {{ user.username }}
+    <p>
+    Followers: {{ user.userprofile.followers.all.count }}
+    </p>
+
+
+
+{% endblock content %}

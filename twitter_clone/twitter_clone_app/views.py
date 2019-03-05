@@ -6,10 +6,11 @@ from .models import Chirp
 from django.views.generic import ListView
 from .forms import HomeForm
 from django.contrib.auth import authenticate, login
+from .models import UserProfile
 
 
 def twitter(request):
-    return render(request, 'twitter_clone_app/twitter.html')
+    return render(request, 'twitter_clone_app/profile.html')
 
 
 def registration(request):
@@ -31,6 +32,10 @@ def registration(request):
         'form': form,
     }
     return render(request, 'twitter_clone_app/registration.html', context)
+
+
+def profile(request):
+    return render(request, 'twitter_clone_app/profile.html')
 
 
 class HomeView(ListView):
