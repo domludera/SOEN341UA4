@@ -11,7 +11,7 @@ from .models import UserProfile
 
 
 def twitter(request):
-    return render(request, 'twitter_clone_app/profile.html')
+    return render(request, 'twitter_clone_app/my-profile.html')
 
 
 def registration(request):
@@ -35,14 +35,14 @@ def registration(request):
     return render(request, 'twitter_clone_app/registration.html', context)
 
 
-def profile(request):
+def my_profile(request):
     context = {
         'chirpList': Chirp.objects.all()
     }
-    return render(request, 'twitter_clone_app/profile.html', context)
+    return render(request, 'twitter_clone_app/my-profile.html', context)
 
 
-def profiles(request):
+def users_profiles(request):
     if request.method == 'POST':
         user = get_object_or_404(UserProfile, id=request.POST.get('follow'))
         if user.followers.filter(id=request.user.id).exists():
@@ -53,7 +53,7 @@ def profiles(request):
     context = {
         'user_profile_list': User.objects.all(),
     }
-    return render(request, 'twitter_clone_app/profiles.html', context)
+    return render(request, 'twitter_clone_app/users-profiles.html', context)
 
 
 class HomeView(ListView):
