@@ -1,4 +1,5 @@
 {% extends "twitter_clone_app/template.html" %}
+
 {% load static %}
 
 {% block content %}
@@ -7,7 +8,7 @@
         <div class="jumbotron">
             {{ user.username }}
             <p>
-                Followers: {{ user.userprofile.followers.all.count }}
+                Followers: {{ user.userprofile.followers.all.count }} <!--Get the number of followers for a user profile -->
             </p>
         </div>
     </b-col>
@@ -15,26 +16,18 @@
         {% for chirp in chirpList reversed %}
             {% if chirp.author.id == user.id %}
                 <div id="feedChirp">
-                    <p>{{ chirp.author }}<br>
-                        {{ chirp.tweet_text }}<br><br>
-
-                        Number of like : {{ chirp.likes.all.count }}<br>
-
-
+                    <p> {{ chirp.author }}
+                        <br>
+                        {{ chirp.tweet_text }}
+                        <br><br>
+                        Number of like : {{ chirp.likes.all.count }}<br> <!-- Get the number of like for a Chirp -->
                         <button name="chirp" value="{{ chirp.id }}" class="btn-primary">Like</button>
-
-
                         </br>
                         {{ chirp.date_posted }}
                     </p>
                 </div>
             {% endif %}
-
         {% endfor %}
-
     </b-col>
-
-
-
 
 {% endblock content %}
