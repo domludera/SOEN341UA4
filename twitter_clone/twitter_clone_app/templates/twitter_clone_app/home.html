@@ -70,33 +70,27 @@
                         <form method="post">
                             {% csrf_token %}
                             {{ form }}
-                            <button type="submit">Post!</button>
+                            <button type="submit" name="post" value="post">Post!</button>
                         </form>
                     </div>
 
 
                     <!-- Iterate threw post in database -->
                     {% for chirp in chirpList reversed %}
-                        <div class="feed" xmlns:v-on="http://www.w3.org/1999/xhtml">
-                            <p id="feedChirp">{{ chirp.author }}<br>
+                        <div id="feedChirp">
+                            <p>{{ chirp.author }}<br>
                                 {{ chirp.tweet_text }}<br><br>
-                                <b-btn v-if="retweet" v-on:click="retweetButton()"><i class="fa fa-retweet"
-                                                                                      style="font-size:15px;color:#73cd00"></i>
-                                </b-btn>
-                                <b-btn v-else="retweet" v-on:click="retweetButton()"><i class="fa fa-retweet"
-                                                                                        style="font-size:15px;color:white"></i>
-                                </b-btn>
-                                <a> {{ chirp.num_like }} </a>
-                                &ensp;
-                                <b-btn v-if="like" v-on:click="likeButton()"><i class="fa fa-heart"
-                                                                                style="font-size:15px;color:darkred"></i>
-                                </b-btn>
-                                <b-btn v-else="like" v-on:click="likeButton()"><i class="fa fa-heart"
-                                                                                  style="font-size:15px;color:white"></i>
-                                </b-btn>
-                                <a> {{ chirp.num_share }} </a>
-                                </br></br>
-                                {{ chirp.date_posted }}
+
+                            Number of like :  {{ chirp.likes.all.count }}
+
+                            <form method="post">
+                            {% csrf_token %}
+                            <button type="submit" name="chirp" value="{{ chirp.id }}" class="btn-primary">Like</button>
+
+                            </form>
+
+                            </br>
+                            {{ chirp.date_posted }}
                             </p>
                         </div>
                     {% endfor %}
