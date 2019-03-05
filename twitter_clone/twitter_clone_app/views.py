@@ -6,10 +6,12 @@ from .models import Chirp
 from django.views.generic import ListView
 from .forms import HomeForm
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.admin import User
+from .models import UserProfile
 
 
 def twitter(request):
-    return render(request, 'twitter_clone_app/twitter.html')
+    return render(request, 'twitter_clone_app/profile.html')
 
 
 def registration(request):
@@ -31,6 +33,27 @@ def registration(request):
         'form': form,
     }
     return render(request, 'twitter_clone_app/registration.html', context)
+
+
+def profile(request):
+    context = {
+        'chirpList': Chirp.objects.all()
+    }
+    return render(request, 'twitter_clone_app/profile.html', context)
+
+
+def profiles(request):
+    if request.method == 'POST':
+        user = get_object_or_404(UserProfile, id=request.POST.get('follow'))
+        if user.followers.filter(id=request.user.id).exists():
+            user.followers.remove(request.user)
+        else:
+            user.followers.add(request.user)
+        return redirect('profiles')
+    context = {
+        'user_profile_list': User.objects.all(),
+    }
+    return render(request, 'twitter_clone_app/profiles.html', context)
 
 
 class HomeView(ListView):
