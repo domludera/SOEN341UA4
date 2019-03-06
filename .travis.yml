@@ -6,7 +6,7 @@
 language: python
 
 services: 
-    - pip
+    - pip3
     - django
 
 python:
