@@ -17,12 +17,12 @@ env:
         #    - DJANGO_VERSION=2.1.5
     - DJANGO_VERSION=2.1.7
     
-install:
-    - pip3 install -q Django==$DJANGO_VERSION
+      #install:
+        #    - pip3 install -q Django==$DJANGO_VERSION
 
 before_script:
     - source ENV/bin/activate
     - cd twitter_clone
-
+    - pip3 install -q Django==$DJANGO_VERSION
 script:
     - python3 manage.py runserver
