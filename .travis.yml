@@ -3,27 +3,15 @@
 #    rooms:
 #      - soen341corp:S6vnts4jdYRFyzVJHHNGvDSd#twitterapp
 
-sudo: required
-dist: "trusty"
 language: python
 python:
         - "3.6.7"
-
-addons:
-        apt:
-                packages:
-                        - "python3"
-                        - "python3-pip"
-
-before_install:
-        - sudo apt-get -y install python3-pip python-dev 
-     
+env:
+        - DJANGO=2.1.7 DB=postresql
 install:
-    - sudo pip3 install -r requirements.txt
-
+        - pip3 install -r requirements.txt
 before_script:
-    - source ENV/bin/activate
-    - cd ./twitter_clone/twitter_clone_app/
-
+        - source ENV/bin/activate
+        - cd twitter_clone
 script:
-    - python3 tests.py
+        - python3 manage.py test
