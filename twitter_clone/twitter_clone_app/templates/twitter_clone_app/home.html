@@ -1,22 +1,20 @@
 {% extends "twitter_clone_app/template.html" %}
-{% load static %}
+
 {% load static %}
 
 {% block content %}
 
-
     <!-- Html for the page -->
 
     <div id="app">
+
         <b-navbar toggleable="md" type="dark" variant="info">
 
             <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
-
             <b-navbar-brand href="#">
                 <img src="{% static 'twitter_clone_app/images/chirp.svg' %}" alt="BV"/>
                 Chirp.
             </b-navbar-brand>
-
 
             <b-collapse is-nav id="nav_collapse">
                 <!-- Right aligned nav items -->
@@ -46,9 +44,9 @@
 
             </b-collapse>
         </b-navbar>
+
         <b-container>
             <b-row style="text-align: center">
-
 
                 <b-col class="mainColumns column1">
                     <div class="jumbotron">
@@ -57,12 +55,12 @@
                     </div>
                 </b-col>
 
-
                 <b-col class="mainColumns column2" sm="6">
                     {% if messages %}
-                        {% for foo in messages %}
+                        {% for welcome_message in messages %}
                             <div>
-                                {{ foo }}
+                                {{ welcome_message }}
+                                <!--If there is a message (first time user log in), print message -->
                             </div>
                         {% endfor %}
                     {% endif %}
@@ -70,49 +68,41 @@
                         <form method="post">
                             {% csrf_token %}
                             {{ form }}
-                            <button type="submit">Post!</button>
+                            <button type="submit" name="post" value="post">Post!</button>
+                            <!--Sends POST request with value post to views.py -->
                         </form>
                     </div>
 
-
-                    <!-- Iterate threw post in database -->
+                    <!-- Iterate threw post in database, in reverse-->
                     {% for chirp in chirpList reversed %}
-                        <div class="feed" xmlns:v-on="http://www.w3.org/1999/xhtml">
-                            <p id="feedChirp">{{ chirp.author }}<br>
-                                {{ chirp.tweet_text }}<br><br>
-                                <b-btn v-if="retweet" v-on:click="retweetButton()"><i class="fa fa-retweet"
-                                                                                      style="font-size:15px;color:#73cd00"></i>
-                                </b-btn>
-                                <b-btn v-else="retweet" v-on:click="retweetButton()"><i class="fa fa-retweet"
-                                                                                        style="font-size:15px;color:white"></i>
-                                </b-btn>
-                                <a> {{ chirp.num_like }} </a>
-                                &ensp;
-                                <b-btn v-if="like" v-on:click="likeButton()"><i class="fa fa-heart"
-                                                                                style="font-size:15px;color:darkred"></i>
-                                </b-btn>
-                                <b-btn v-else="like" v-on:click="likeButton()"><i class="fa fa-heart"
-                                                                                  style="font-size:15px;color:white"></i>
-                                </b-btn>
-                                <a> {{ chirp.num_share }} </a>
-                                </br></br>
-                                {{ chirp.date_posted }}
+                        <div id="feedChirp">
+                            <p> {{ chirp.author }}
+                                <br>
+                                {{ chirp.tweet_text }}
+                                <br><br>
+                                Number of like : {{ chirp.likes.all.count }}
+
+                            <form method="post">
+                                {% csrf_token %}
+                                <button type="submit" name="chirp" value="{{ chirp.id }}" class="btn-primary">Like
+                                </button> <!--Creates a button that sends a POST request, with different ids -->
+                            </form>
+
+                            </br>
+                            {{ chirp.date_posted }}
                             </p>
                         </div>
-                    {% endfor %}
-
-                    <!-- end of iteration -->
-
+                        <br>
+                    {% endfor %} <!-- end of iteration -->
                 </b-col>
-
 
                 <b-col class="mainColumns column3">
                     <div class="jumbotron">
                         <div class="profilePic">profilePic</div>
                         <div class="profileStats">profileStats</div>
-
                     </div>
                 </b-col>
+
             </b-row>
         </b-container>
     </div>
