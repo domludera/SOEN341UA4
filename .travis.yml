@@ -2,3 +2,21 @@
 #  slack:
 #    rooms:
 #      - soen341corp:S6vnts4jdYRFyzVJHHNGvDSd#twitterapp
+
+language: python
+
+services: 
+    - pip
+    - django
+
+python:
+    - "3.5"
+    
+env:
+    - DJANGO_VERSION=2.1.5
+    
+install:
+    - pip install -q Django==$DJANGO_VERSION
+    
+script:
+    - pytest
