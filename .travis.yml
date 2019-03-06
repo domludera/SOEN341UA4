@@ -11,12 +11,18 @@ services:
 
 python:
     - "3.5"
+    - "3.6.7"
     
 env:
     - DJANGO_VERSION=2.1.5
+    - DJANGO_VERSION=2.1.7
     
 install:
-    - pip install -q Django==$DJANGO_VERSION
-    
+    - pip3 install -q Django==$DJANGO_VERSION
+
+before_script:
+    - source ENV/bin/activate
+    - cd twitter_clone
+
 script:
-    - pytest
+    - python3 manage.py runserver
