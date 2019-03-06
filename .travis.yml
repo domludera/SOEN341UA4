@@ -23,7 +23,7 @@ install:
 
 before_script:
     - source ENV/bin/activate
-    - cd ./twitter_clonel
+    - cd ./twitter_clone/
 
 script:
     - python3 manage.py runserver
