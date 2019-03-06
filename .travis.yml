@@ -26,4 +26,4 @@ before_script:
     - cd twitter_clone/
 
 script:
-    - python3 manage.py runserver
+    - python manage.py runserver
