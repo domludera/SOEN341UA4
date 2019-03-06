@@ -23,7 +23,7 @@ env:
 before_script:
     - source ENV/bin/activate
     - apt install python3-pip
-    - pip3 install -q Django==$DJANGO_VERSION
+      #    - pip3 install -q Django==$DJANGO_VERSION
     - cd twitter_clone/
 
 script:
