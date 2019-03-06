@@ -26,4 +26,4 @@ before_script:
     - cd ./twitter_clone/
 
 script:
-    - ls -al
+    - python3 manage.py test
