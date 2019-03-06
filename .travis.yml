@@ -4,14 +4,32 @@
 #      - soen341corp:S6vnts4jdYRFyzVJHHNGvDSd#twitterapp
 
 language: python
+
 python:
-        - "3.6.7"
+  - "3.6.7"
+
+addons:
+  apt:
+    packages:
+      - "python3"
+      - "python3-pip"
+
 env:
-        - DJANGO=2.1.7 DB=postresql
+  global:
+    - DJANGO_SETTINGS_MODULE="twitter_clone.settings"
+    - PIP_USE_MIRRORS=true
+    - BUILD_ON_TRAVIS=true
+  matrix:
+    - DJANGO=2.1.7
+
+#commands to install dependencies
 install:
-        - pip3 install -r requirements.txt
+  - pip install -q Django==$DJANGO
+  - pip install -q -r requirements.txt
+
 before_script:
-        - source ENV/bin/activate
-        - cd twitter_clone
+  - cd twitter_clone
+
+#command to run the test suite
 script:
-        - python3 manage.py test
+  - python manage.py test
