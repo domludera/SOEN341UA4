@@ -1,5 +1,7 @@
 # SOEN 341
 
+[![Build Status](https://travis-ci.org/domludera/SOEN341UA4.svg?branch=master)](https://travis-ci.org/domludera/SOEN341UA4)
+
 ![Chirp](https://i.ibb.co/crv58YB/chirp.png)
 
 ## Description
