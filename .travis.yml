@@ -26,4 +26,4 @@ before_script:
     - cd ./twitter_clone/twitter_clone_app/
 
 script:
-    - python3 test.py
+    - python3 tests.py
