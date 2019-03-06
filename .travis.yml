@@ -10,7 +10,7 @@ services:
     - django
 
 python:
-    - "3.5"
+        #    - "3.5"
     - "3.6.7"
     
 env:
@@ -22,7 +22,8 @@ env:
 
 before_script:
     - source ENV/bin/activate
-    - cd twitter_clone
     - pip3 install -q Django==$DJANGO_VERSION
+    - cd twitter_clone/
+
 script:
     - python3 manage.py runserver
