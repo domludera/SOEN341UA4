@@ -1,7 +1,7 @@
-#notifications:
-#  slack:
-#    rooms:
-#      - soen341corp:S6vnts4jdYRFyzVJHHNGvDSd#twitterapp
+notifications:
+  slack:
+    rooms:
+      - soen341corp:S6vnts4jdYRFyzVJHHNGvDSd#twitterapp
 
 language: python
 
