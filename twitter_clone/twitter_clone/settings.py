@@ -95,6 +95,7 @@ else:
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'dev',
+            'USER': 'dev',
             'PASSWORD': 'root',
             'HOST': '35.238.157.110',
             'PORT': '5432',
