@@ -19,17 +19,11 @@ if os.getenv('BUILD_ON_TRAVIS', None):
 
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'dev',
-            'PASSWORD': 'root',
-            'HOST': '35.238.157.110',
-            'PORT': '5432',
-            'OPTIONS': {
-                'sslmode': 'verify-ca',
-                'sslrootcert': os.environ['SERVER_CA_341'],
-                "sslcert": os.environ['CLIENT_CERT_341'],
-                "sslkey": os.environ['CLIENT_KEY_341'],
-            }
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'travis_ci_db',
+            'USER': 'travis',
+            'PASSWORD': '',
+            'HOST': '127.0.0.1',
         }
     }
 else:
