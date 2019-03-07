@@ -56,6 +56,8 @@ if os.getenv('BUILD_ON_TRAVIS', None):
     ]
 
     STATIC_URL = '/static/'
+
+    WSGI_APPLICATION = 'twitter_clone.wsgi.application'
 else:
         # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
