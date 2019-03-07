@@ -1,0 +1,86 @@
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-0lax">ID</th>
+    <th class="tg-0lax">GIVEN</th>
+    <th class="tg-0lax">WHEN</th>
+    <th class="tg-0lax">THEN</th>
+  </tr>
+  <tr>
+    <td class="tg-0lax">01</td>
+    <td class="tg-0lax">User account does not exist</td>
+    <td class="tg-0lax">User creates account with a given name and password</td>
+    <td class="tg-0lax">Account is created with specified name and password</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">02</td>
+    <td class="tg-0lax">User account exists</td>
+    <td class="tg-0lax">User creates account with a given name and password</td>
+    <td class="tg-0lax">User is alerted that the account already exists</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">03</td>
+    <td class="tg-0lax">Account exists AND password is correct</td>
+    <td class="tg-0lax">User attempts to log in</td>
+    <td class="tg-0lax">Account logs in</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">04</td>
+    <td class="tg-0lax">Username exists AND password is NOT correct</td>
+    <td class="tg-0lax">User attempts to log in</td>
+    <td class="tg-0lax">User is informed that the password is incorrect</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">05</td>
+    <td class="tg-0lax">Username does NOT exist</td>
+    <td class="tg-0lax">User attempts to log in</td>
+    <td class="tg-0lax">User is prompted to create an account</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">06</td>
+    <td class="tg-0lax">Account is logged in</td>
+    <td class="tg-0lax">User attempts to post a tweet</td>
+    <td class="tg-0lax">Tweet is posted with the user's specified text</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">07</td>
+    <td class="tg-0lax">Account is not logged in</td>
+    <td class="tg-0lax">User attempts to post a tweet</td>
+    <td class="tg-0lax">User is prompted to log in</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">08</td>
+    <td class="tg-0lax">Account is logged in</td>
+    <td class="tg-0lax">User attempts to like a tweet</td>
+    <td class="tg-0lax">The like is recorded</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">09</td>
+    <td class="tg-0lax">Account is not logged in</td>
+    <td class="tg-0lax">User attempts to like a tweet</td>
+    <td class="tg-0lax">User is prompted to log in</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">10</td>
+    <td class="tg-0lax">Account is logged in</td>
+    <td class="tg-0lax">User attempts to follow another user</td>
+    <td class="tg-0lax">User will receive notifications when the followed account posts a tweet</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">11</td>
+    <td class="tg-0lax">Account is not logged in</td>
+    <td class="tg-0lax">User attempts to follow another user</td>
+    <td class="tg-0lax">Prompt user to log in</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">12</td>
+    <td class="tg-0lax">Account is logged in</td>
+    <td class="tg-0lax">User attempts to log out</td>
+    <td class="tg-0lax">The account logs out</td>
+  </tr>
+</table>
