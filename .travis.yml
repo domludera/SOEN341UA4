@@ -29,6 +29,7 @@ install:
 
 before_script:
   - cd twitter_clone
+  - chmod 600 *.pem
   - . vars.sh
 
 #command to run the test suite
