@@ -77,20 +77,19 @@ WSGI_APPLICATION = 'twitter_clone.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dev',
-        'USER': 'dev',
-        'PASSWORD': 'root',
-        'HOST': '35.238.157.110',
-        'PORT': '5432',
-        'OPTIONS': {
-            'sslmode': 'verify-ca',
-            'sslrootcert': os.environ['SERVER_CA_341'],
-            "sslcert": os.environ['CLIENT_CERT_341'],
-            "sslkey": os.environ['CLIENT_KEY_341'],
-        }
-    }
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': 'dev',
+#        'PASSWORD': 'root',
+#        'HOST': '35.238.157.110',
+#        'PORT': '5432',
+#        'OPTIONS': {
+#            'sslmode': 'verify-ca',
+#            'sslrootcert': os.environ['SERVER_CA_341'],
+#            "sslcert": os.environ['CLIENT_CERT_341'],
+#            "sslkey": os.environ['CLIENT_KEY_341'],
+#        }
+#    }
 }
 
 
@@ -133,5 +132,3 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/twitter/home'
-
-
