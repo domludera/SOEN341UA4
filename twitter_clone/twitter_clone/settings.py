@@ -27,6 +27,8 @@ if os.getenv('BUILD_ON_TRAVIS', None):
             'django.contrib.staticfiles',
         ]
 
+        ROOT_URLCONF = 'twitter_clone.urls'
+
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
