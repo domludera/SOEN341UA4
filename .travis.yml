@@ -29,7 +29,7 @@ install:
 
 before_script:
   - cd twitter_clone
-#  - . vars.sh
+  - . vars.sh
 
 #command to run the test suite
 script:
