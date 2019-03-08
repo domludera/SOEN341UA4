@@ -23,12 +23,14 @@ env:
     - DJANGO=2.1.7 DB=postgre
 
 #commands to install dependencies
+before_install:
+  - source ENV/bin/activate
+
 install:
-  - pip install -q Django==$DJANGO
+  #  - pip install -q Django==$DJANGO
   - pip install -q -r requirements.txt
 
 before_script:
-  - source ENV/bin/activate
   - cd twitter_clone
 
 #command to run the test suite
