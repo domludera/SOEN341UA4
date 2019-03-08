@@ -27,6 +27,10 @@ if os.getenv('BUILD_ON_TRAVIS', None):
         }
     }
 
+    INSTALLED_APPS = [
+        'twitter_clone_app',
+    ]
+
 else:
         # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
