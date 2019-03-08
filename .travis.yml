@@ -29,8 +29,6 @@ install:
 
 before_script:
   - cd twitter_clone
-  - postrges createuser taiga
-  - postgres createdb taiga -0 taiga
 
 #command to run the test suite
 script:
