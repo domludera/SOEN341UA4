@@ -37,6 +37,8 @@ if os.getenv('BUILD_ON_TRAVIS', None):
         'django.contrib.staticfiles',
     ]
 
+    ROOT_URLCONF = 'twitter_clone.urls'
+
 else:
         # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
