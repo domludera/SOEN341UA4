@@ -28,8 +28,9 @@ install:
   - pip install -q -r requirements.txt
 
 before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
   - cd twitter_clone
+  - postrges createuser taiga
+  - postgres createdb taiga -0 taiga
 
 #command to run the test suite
 script:
