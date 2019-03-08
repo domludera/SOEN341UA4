@@ -27,7 +27,7 @@ before_install:
   - source ENV/bin/activate
 
 install:
-  #  - pip install -q Django==$DJANGO
+  - pip install -q Django==$DJANGO
   - pip install -q -r requirements.txt
 
 before_script:
