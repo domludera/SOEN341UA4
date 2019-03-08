@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 if os.getenv('BUILD_ON_TRAVIS', None):
     SECRET_KEY = 'gmfddk@^5%2)v6gku#^s&jjqt=wp%k)2gjtl=dnf)z29+u05w-'
     DEBUG = False
@@ -43,7 +41,7 @@ if os.getenv('BUILD_ON_TRAVIS', None):
 
     TEMPLATES = [
         {
-            'DIRS': [os.path.join(BASE_DIR, 'templates')],
+            'DIRS': ['templates'],
         }
     ]
 
