@@ -55,6 +55,8 @@ if os.getenv('BUILD_ON_TRAVIS', None):
         },
     ]
 
+    STATIC_URL = 'static'
+
 else:
         # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
