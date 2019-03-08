@@ -21,7 +21,9 @@ if os.getenv('BUILD_ON_TRAVIS', None):
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'travis_ci_db',
-            'USER': 'dev',
+            'USER': 'travis',
+            'PASSWORD': '',
+            'HOST': '127.0.0.1',
         }
     }
 
@@ -33,53 +35,6 @@ if os.getenv('BUILD_ON_TRAVIS', None):
         'django.contrib.sessions',
         'django.contrib.messages',
         'django.contrib.staticfiles',
-    ]
-
-
-    MIDDLEWARE = [
-        'django.middleware.security.SecurityMiddleware',
-        'django.contrib.sessions.middleware.SessionMiddleware',
-        'django.middleware.common.CommonMiddleware',
-        'django.middleware.csrf.CsrfViewMiddleware',
-        'django.contrib.auth.middleware.AuthenticationMiddleware',
-        'django.contrib.messages.middleware.MessageMiddleware',
-        'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    ]
-
-
-    ROOT_URLCONF = 'twitter_clone.urls'
-
-    TEMPLATES = [
-        {
-            'BACKEND': 'django.template.backends.django.DjangoTemplates',
-            'DIRS': ['templates'],
-            'APP_DIRS': True,
-            'OPTIONS': {
-                'context_processors': [
-                    'django.template.context_processors.debug',
-                    'django.template.context_processors.request',
-                    'django.contrib.auth.context_processors.auth',
-                    'django.contrib.messages.context_processors.messages',
-                ],
-            },
-        },
-    ]
-
-    STATIC_URL = 'static/'
-
-    AUTH_PASSWORD_VALIDATORS = [
-        {
-            'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-        },
-        {
-            'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-        },
-        {
-            'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-        },
-        {
-            'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-        },
     ]
 
 else:
@@ -150,8 +105,17 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'travis_ci_db',
-            'USER': 'taiga',
+            'NAME': 'dev',
+            'USER': 'dev',
+            'PASSWORD': 'root',
+            'HOST': '35.238.157.110',
+            'PORT': '5432',
+            'OPTIONS': {
+                'sslmode': 'verify-ca',
+                'sslrootcert': os.environ['SERVER_CA_341'],
+                "sslcert": os.environ['CLIENT_CERT_341'],
+                "sslkey": os.environ['CLIENT_KEY_341'],
+            }
         }
     }
 
