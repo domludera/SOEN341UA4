@@ -21,7 +21,7 @@ if os.getenv('BUILD_ON_TRAVIS', None):
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'travis_ci_db',
-            'USER': 'postgre',
+            'USER': 'travis',
         }
     }
 
