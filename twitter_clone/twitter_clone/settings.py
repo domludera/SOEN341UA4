@@ -39,6 +39,12 @@ if os.getenv('BUILD_ON_TRAVIS', None):
 
     ROOT_URLCONF = 'twitter_clone.urls'
 
+    TEMPLATES = [
+        {
+            'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        }
+    ]
+
 else:
         # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
