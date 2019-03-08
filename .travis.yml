@@ -33,4 +33,4 @@ before_script:
 
 #command to run the test suite
 script:
-  - python manage.py test twitter_clone_app
+  - python3 manage.py test twitter_clone_app
