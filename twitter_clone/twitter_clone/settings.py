@@ -15,7 +15,7 @@ import os
 if os.getenv('BUILD_ON_TRAVIS', None):
     SECRET_KEY = 'gmfddk@^5%2)v6gku#^s&jjqt=wp%k)2gjtl=dnf)z29+u05w-'
     DEBUG = False
-    TEMPLATE_DEBUG = False
+    TEMPLATE_DEBUG = True
 
     DATABASES = {
         'default': {
