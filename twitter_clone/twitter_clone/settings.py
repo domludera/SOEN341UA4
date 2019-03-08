@@ -37,7 +37,7 @@ if os.getenv('BUILD_ON_TRAVIS', None):
         'django.contrib.staticfiles',
     ]
 
-    
+
     MIDDLEWARE = [
         'django.middleware.security.SecurityMiddleware',
         'django.contrib.sessions.middleware.SessionMiddleware',
@@ -68,6 +68,21 @@ if os.getenv('BUILD_ON_TRAVIS', None):
     ]
 
     STATIC_URL = 'static/'
+
+    AUTH_PASSWORD_VALIDATORS = [
+        {
+            'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        },
+        {
+            'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        },
+        {
+            'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        },
+        {
+            'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        },
+    ]
 
 else:
         # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
