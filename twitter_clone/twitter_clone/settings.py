@@ -15,19 +15,7 @@ import os
 if os.getenv('BUILD_ON_TRAVIS', None):
     SECRET_KEY = 'gmfddk@^5%2)v6gku#^s&jjqt=wp%k)2gjtl=dnf)z29+u05w-'
     DEBUG = False
-    TEMPLATE_DEBUG = True
-
-    INSTALLED_APPS = [
-            'twitter_clone_app',
-            'django.contrib.admin',
-            'django.contrib.auth',
-            'django.contrib.contenttypes',
-            'django.contrib.sessions',
-            'django.contrib.messages',
-            'django.contrib.staticfiles',
-        ]
-
-    ROOT_URLCONF = 'twitter_clone.urls'
+    TEMPLATE_DEBUG = False
 
     DATABASES = {
         'default': {
@@ -39,25 +27,6 @@ if os.getenv('BUILD_ON_TRAVIS', None):
         }
     }
 
-    TEMPLATES = [
-        {
-            'BACKEND': 'django.template.backends.django.DjangoTemplates',
-            'DIRS': ['twitter_clone_app/templates'],
-            'APP_DIRS': True,
-            'OPTIONS': {
-                'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-                ],
-            },
-        },
-    ]
-
-    STATIC_URL = '/static/'
-
-    WSGI_APPLICATION = 'twitter_clone.wsgi.application'
 else:
         # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
