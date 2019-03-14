@@ -20,3 +20,5 @@ six==1.11.0
 urllib3==1.22
 Whoosh==2.7.4
 wrapt==1.10.11
+virtualenv==15.1.0
+psycopg2==2.7.7
