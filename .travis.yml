@@ -1,7 +1,8 @@
 language: python
 
-global:
-  - BUILD_ON_TRAVIS=true
+env:
+  global:
+    - BUILD_ON_TRAVIS=true
 
 python:
   - "3.6"
