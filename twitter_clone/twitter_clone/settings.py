@@ -27,10 +27,9 @@ if os.getenv('BUILD_ON_TRAVIS', None):
         }
     }
 else:
-        # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+    # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
     # Quick-start development settings - unsuitable for production
     # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -38,12 +37,10 @@ else:
     # SECURITY WARNING: keep the secret key used in production secret!
     SECRET_KEY = 'gmfddk@^5%2)v6gku#^s&jjqt=wp%k)2gjtl=dnf)z29+u05w-'
 
-
     # SECURITY WARNING: don't run with debug turned on in production!
     DEBUG = True
 
     ALLOWED_HOSTS = []
-
 
     # Application definition
 
@@ -87,7 +84,6 @@ else:
 
     WSGI_APPLICATION = 'twitter_clone.wsgi.application'
 
-
     # Database
     # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
@@ -108,7 +104,6 @@ else:
         }
     }
 
-
     # Password validation
     # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
@@ -127,7 +122,6 @@ else:
         },
     ]
 
-
     # Internationalization
     # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
@@ -140,7 +134,6 @@ else:
     USE_L10N = True
 
     USE_TZ = True
-
 
     # Static files (CSS, JavaScript, Images)
     # https://docs.djangoproject.com/en/2.1/howto/static-files/
