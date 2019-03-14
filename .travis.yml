@@ -1,35 +1,7 @@
-notifications:
-  slack:
-    rooms:
-      - soen341corp:S6vnts4jdYRFyzVJHHNGvDSd#twitterapp
-
 language: python
 
 python:
-  - "3.6.7"
+  - "3.6"
 
-addons:
-  apt:
-    packages:
-      - "python3"
-      - "python3-pip"
-
-env:
-  global:
-    - DJANGO_SETTINGS_MODULE="twitter_clone.settings"
-    - PIP_USE_MIRRORS=true
-    - BUILD_ON_TRAVIS=true
-  matrix:
-    - DJANGO=2.1.7
-
-#commands to install dependencies
-install:
-  - pip install -q Django==$DJANGO
-  - pip install -q -r requirements.txt
-
-before_script:
-  - cd twitter_clone
-
-#command to run the test suite
 script:
-  - python manage.py test
+  - python twitter_clone/manage.py test twitter_clone/twitter_clone_app/
