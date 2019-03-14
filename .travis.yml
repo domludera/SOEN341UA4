@@ -8,4 +8,6 @@ python:
   - "3.6"
 
 script:
-  - python twitter_clone/manage.py test twitter_clone/twitter_clone_app/
+  - coverage run twitter_clone/manage.py test twitter_clone/twitter_clone_app/
+
+after_script: codecov
