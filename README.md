@@ -1,5 +1,6 @@
-# SOEN 341 [![Build Status](https://travis-ci.org/domludera/SOEN341UA4.svg?branch=master)](https://travis-ci.org/domludera/SOEN341UA4)
-
+[![Build Status](https://travis-ci.org/domludera/SOEN341UA4.svg?branch=master)](https://travis-ci.org/domludera/SOEN341UA4)
+[![codecov](https://codecov.io/gh/domludera/SOEN341UA4/branch/master/graphs/badge.svg)](https://codecov.io/gh/domludera/SOEN341UA4)
+# SOEN 341 
 ![Chirp](https://i.ibb.co/crv58YB/chirp.png)
 
 ## Description
