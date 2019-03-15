@@ -6,6 +6,5 @@ omit =
     */static/*
     */templates/*
     */tests/*
-    */home/*
-    */usr/local/lib/*
+    /usr*
 
