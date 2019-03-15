@@ -1,0 +1,11 @@
+:root{
+  --pink: #d65296;
+  --grey: rgb(70, 70, 70);
+  --lightgrey: rgb(80, 80, 80);
+  --darkgrey: rgb(60, 60, 60);
+  --darkergrey: rgb(50, 50, 50);
+}
+
+body{
+  background-color: var(--darkgrey);
+}
