@@ -1,0 +1,11 @@
+[run]
+branch = True
+source = twitter_clone/twitter_clone_app
+omit =
+    */migrations/*
+    */static/*
+    */templates/*
+    */tests/*
+    */home/*
+    */usr/local/lib/*
+
