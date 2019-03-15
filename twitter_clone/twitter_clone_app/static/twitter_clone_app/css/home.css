@@ -10,13 +10,37 @@
 
 #feedChirp{
     margin: auto;
-    padding: 1.5em;
-    border: aqua solid 1px;
+    border: var(--pink) solid 1px;
     border-radius: 5px;
+    background-color: var(--lightgrey);
 }
 
 .chirpForm{
 
+}
+
+#userName{
+  color: white;
+}
+
+.profileSummary{
+  position: sticky;
+  top: 66px;
+}
+
+.profilePic{
+  border-radius: 50%;
+  height: 40px;
+}
+
+.feed{
+    top: 10px;
+}
+
+
+.jumbotron{
+
+    background-color: var(--lightgrey);
 }
 
 /*
@@ -25,17 +49,9 @@
     max-height: fit-content;
 }
 
-.jumbotron{
-    margin-top: 10px;
-    padding: 0;
-    background-color: white;
-}
 
-.feed{
-    margin-top: 5px;
-    background-color: white;
-    border-radius: 5px;
-}
+
+
 
 
 #trendingChirps{
