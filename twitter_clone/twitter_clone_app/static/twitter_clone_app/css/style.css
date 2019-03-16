@@ -9,3 +9,9 @@
 body{
   background-color: var(--darkgrey);
 }
+
+.logoutBtn{
+    text-decoration: none;
+    background-color: lightcoral;
+    color: white;
+}

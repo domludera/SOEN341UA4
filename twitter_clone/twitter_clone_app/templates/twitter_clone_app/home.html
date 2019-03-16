@@ -6,41 +6,6 @@
 
 <!-- Html for the page -->
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-  <a class="navbar-brand" href="#">Chirp.</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-    <span class="sr-only">(current)</span>
-      </li>
-    </ul>
-
-
-
-
-    <ul class="navbar-nav">
-      <li class="nav-item dropdown" right>
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          @{{ user.username }}
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Profile</a>
-          <a class="dropdown-item" href="#">Settings</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item logoutBtn" href="#">Logout</a>
-        </div>
-      </li>
-    </ul>
-
-
-
-  </div>
-</nav>
-
 
 
 <div class="container">
@@ -52,10 +17,17 @@
 
         <div class="profileStats">profileStats</div>
 
+
+
         <form class="form-group" method="post">
           {% csrf_token %}
-        {{ form }}
-          <button type="submit" name="post" value="post">Post!</button>
+
+          <div class="input-group mb-3">
+            {{ form }}
+            <div class="input-group-append">
+              <button class="btn btn-outline-light" type="button" id="button-addon2">Post!</button>
+            </div>
+          </div>
           <!--Sends POST request with value post to views.py -->
         </form>
       </div>
@@ -82,20 +54,19 @@
       <!-- Iterate threw post in database, in reverse-->
       {% for chirp in chirpList reversed %}
       <div id="feedChirp">
-        <h5 id="userName"> {{ chirp.author }} </h5>
-        <p id="chirpContent">{{ chirp.tweet_text }}</p>
-
-          Number of like : {{ chirp.likes.all.count }}
-
+        <p class="author">@{{ chirp.author }} </p>
+        <p class="chirpContent">
+          {{ chirp.tweet_text }}
+        </p>
           <form method="post">
             {% csrf_token %}
-            <button type="submit" name="chirp" value="{{ chirp.id }}" class="btn-primary">Like
+            <button type="submit" name="chirp" value="{{ chirp.id }}" class="likebtn">
+              <i name="chirp" value="{{ chirp.id }}}" class="fas fa-heart"></i>
             </button>
+            {{ chirp.likes.all.count }}
             <!--Creates a button that sends a POST request, with different ids -->
           </form>
-
-          <br>
-          {{ chirp.date_posted }}
+          {{ chirp.date_posted | date:"M d, Y" }}
         </p>
       </div>
       <br>

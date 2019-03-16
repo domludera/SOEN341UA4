@@ -1,46 +1,61 @@
-.login_logo{
+.login_logo {
   height: 80px;
 }
 
-.logoutBtn{
-    text-decoration: none;
-    background-color: lightcoral;
-    color: white;
+.fa-heart {
+  color: grey;
 }
 
-#feedChirp{
-    margin: auto;
-    border: var(--pink) solid 1px;
-    border-radius: 5px;
-    background-color: var(--lightgrey);
+.likebtn {
+  text-decoration: none;
+  background-color: inherit;
+  border: none;
 }
 
-.chirpForm{
-
+.author {
+  color: var(--darkergrey);
 }
 
-#userName{
+.chirpContent {
+  color: white;
+  font-size: 24px;
+}
+
+.form-control{
+  border: 1px solid white;
+  color: white;
+  background-color: var(--grey);
+}
+
+
+#feedChirp {
+  margin: auto;
+  border: var(--darkgrey) solid 1px;
+  border-radius: 5px;
+  background-color: var(--lightgrey);
+  padding: 1rem;
+}
+
+#userName {
   color: white;
 }
 
-.profileSummary{
+.profileSummary {
   position: sticky;
   top: 66px;
 }
 
-.profilePic{
+.profilePic {
   border-radius: 50%;
   height: 40px;
 }
 
-.feed{
-    top: 10px;
+.feed {
+  top: 10px;
 }
 
-
-.jumbotron{
-
-    background-color: var(--lightgrey);
+.jumbotron {
+  background-color: var(--lightgrey);
 }
 
 /*
@@ -48,11 +63,6 @@
     min-height: 100px;
     max-height: fit-content;
 }
-
-
-
-
-
 
 #trendingChirps{
     color: darkslategrey;
