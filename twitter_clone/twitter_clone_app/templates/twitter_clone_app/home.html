@@ -69,22 +69,20 @@
 
       <!-- Iterate threw post in database, in reverse-->
       {% for chirp in chirpList reversed %}
-      <div id="feedChirp" style="margin:0; border:0;">
+      <div id="feedChirp">
         <p class="author">@{{ chirp.author }} &#8226; <em class="date">{{ chirp.date_posted | date:"M d, Y" }}</i></p>
         <p class="chirpContent">
           {{ chirp.tweet_text }}
         </p>
-        <p class="chirpFooter">
           <form method="post">
             {% csrf_token %}
             <button type="submit" name="chirp" value="{{ chirp.id }}" class="likebtn">
               <i name="chirp" value="{{ chirp.id }}}" class="fas fa-heart heart-btn"></i>
+              {{ chirp.likes.all.count }}
             </button>
-            {{ chirp.likes.all.count }}
+
             <!--Creates a button that sends a POST request, with different ids -->
           </form>
-        </p>
-        <hr>
       </div>
       {% endfor %} <!-- end of iteration -->
     </div>

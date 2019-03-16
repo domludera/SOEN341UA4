@@ -10,6 +10,7 @@
   text-decoration: none;
   background-color: inherit;
   border: none;
+  color: var(--darkergrey)
 }
 
 .author {
@@ -28,6 +29,7 @@
 
 .chirpFooter {
   color: black;
+  display: flex;
 }
 
 .form-control {
@@ -43,7 +45,8 @@
 #feedChirp {
   margin: auto;
   background-color: var(--lightgrey);
-  padding: 1rem
+  padding: 1rem;
+  border-bottom: 1px solid var(--darkergrey);
 }
 
 /*
@@ -61,9 +64,9 @@ border-radius: 5px;
 }
 
 .profilePic {
-  border-radius: 50%;
   height: 80px;
   padding: 5px;
+  border-radius: 50%;
 }
 
 .feed {
