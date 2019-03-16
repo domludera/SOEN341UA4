@@ -10,8 +10,12 @@ body{
   background-color: var(--darkgrey);
 }
 
-.logoutBtn{
+a .logoutBtn{
     text-decoration: none;
     background-color: lightcoral;
     color: white;
+}
+
+nav {
+  background-color: rgb(29, 29, 29);
 }

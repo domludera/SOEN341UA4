@@ -2,7 +2,7 @@
   height: 80px;
 }
 
-.fa-heart {
+.heart-btn {
   color: grey;
 }
 
@@ -14,6 +14,11 @@
 
 .author {
   color: var(--darkergrey);
+  font-weight: bold;
+}
+
+.date {
+  color: var(--grey);
 }
 
 .chirpContent {
@@ -21,21 +26,31 @@
   font-size: 24px;
 }
 
-.form-control{
+.chirpFooter {
+  color: black;
+}
+
+.form-control {
   border: 1px solid white;
   color: white;
   background-color: var(--grey);
 }
 
+.navbar-dark {
+  background-color: black;
+}
 
 #feedChirp {
   margin: auto;
-  border: var(--darkgrey) solid 1px;
-  border-radius: 5px;
   background-color: var(--lightgrey);
-  padding: 1rem;
+  padding: 1rem
 }
 
+/*
+margin: auto;
+border: var(--darkgrey) solid 1px;
+border-radius: 5px;
+*/
 #userName {
   color: white;
 }
@@ -47,7 +62,8 @@
 
 .profilePic {
   border-radius: 50%;
-  height: 40px;
+  height: 80px;
+  padding: 5px;
 }
 
 .feed {
@@ -56,6 +72,20 @@
 
 .jumbotron {
   background-color: var(--lightgrey);
+}
+
+.no--deco {
+  text-decoration: none;
+  color: inherit;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid var(--darkgrey);
+  margin: 1em 0;
+  padding: 0;
 }
 
 /*

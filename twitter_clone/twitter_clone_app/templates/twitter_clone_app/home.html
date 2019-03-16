@@ -13,25 +13,43 @@
 
     <div class="col-sm-4">
       <div class="jumbotron profileSummary">
-          <img class="profilePic" src="{% static 'twitter_clone_app/images/7160.jpg' %}" alt="profilePic">
+        <table>
+          <tbody>
+            <tr>
+              <td class="profilePic" rowspan="2">
+                <img class="profilePic" src="{% static 'twitter_clone_app/images/7160.jpg' %}" alt="profilePic">
+              </td>
+              <td>
+                <h3>
+                  <a class="no--deco" href="/twitter/my-profile/">@{{ user.username }}</a>
+                </h3>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>
+                  <i class="fas fa-users"></i> {{ user.userprofile.followers.all.count }} &nbsp;
+                  <i class="fas fa-heart"></i> {{ user.userprofile.likes.all.count}} &nbsp;
+                  <i class="fas fa-comment"></i> {{user.userprofile.chirp.all.count}}
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-        <div class="profileStats">profileStats</div>
+        <br>
 
-
-
-        <form class="form-group" method="post">
+        <form class="form-group" method="post"> <!--Sends POST request with value post to views.py -->
           {% csrf_token %}
-
           <div class="input-group mb-3">
             {{ form }}
             <div class="input-group-append">
-              <button class="btn btn-outline-light" type="button" id="button-addon2">Post!</button>
+              <button class="btn btn-outline-light" type="submit" id="button-addon2">Post!</button>
             </div>
           </div>
-          <!--Sends POST request with value post to views.py -->
         </form>
       </div>
-      </div>
+    </div>
 
 
 
@@ -46,32 +64,29 @@
       </div>
       {% endfor %}
       {% endif %}
-      <div class="container">
 
 
-      </div>
 
       <!-- Iterate threw post in database, in reverse-->
       {% for chirp in chirpList reversed %}
-      <div id="feedChirp">
-        <p class="author">@{{ chirp.author }} </p>
+      <div id="feedChirp" style="margin:0; border:0;">
+        <p class="author">@{{ chirp.author }} &#8226; <em class="date">{{ chirp.date_posted | date:"M d, Y" }}</i></p>
         <p class="chirpContent">
           {{ chirp.tweet_text }}
         </p>
+        <p class="chirpFooter">
           <form method="post">
             {% csrf_token %}
             <button type="submit" name="chirp" value="{{ chirp.id }}" class="likebtn">
-              <i name="chirp" value="{{ chirp.id }}}" class="fas fa-heart"></i>
+              <i name="chirp" value="{{ chirp.id }}}" class="fas fa-heart heart-btn"></i>
             </button>
             {{ chirp.likes.all.count }}
             <!--Creates a button that sends a POST request, with different ids -->
           </form>
-          {{ chirp.date_posted | date:"M d, Y" }}
         </p>
+        <hr>
       </div>
-      <br>
-      {% endfor %}
-      <!-- end of iteration -->
+      {% endfor %} <!-- end of iteration -->
     </div>
 
 
