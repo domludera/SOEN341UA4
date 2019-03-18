@@ -70,7 +70,7 @@
       <!-- Iterate threw post in database, in reverse-->
       {% for chirp in chirpList reversed %}
       <div id="feedChirp">
-          <p class="author"><a href="/twitter/users-profiles/{{ chirp.author }}/">{{ chirp.author }}</a>  &#8226; <em class="date">{{ chirp.date_posted | date:"M d, Y" }}</em></p>
+          <p class="author"><a href="/profile/{{ chirp.author }}/">{{ chirp.author }}</a>  &#8226; <em class="date">{{ chirp.date_posted | date:"M d, Y" }}</em></p>
         <p class="chirpContent">
           {{ chirp.tweet_text }}
         </p>

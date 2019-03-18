@@ -30,17 +30,18 @@
   </table>
 </div>
 </div>
-
-
-
-
-
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" name="follow" value="{{ user_requested.userprofile.id }}" class="btn-primary">Follow this
+            user
+        </button>
+    </form>
 
 <div class="cotainer chirps">
 
 
   {% for chirp in chirpList reversed %}
-  {% if chirp.author.id == user.id %}
+  {% if chirp.author.id == user_requested.id %}
   <div id="feedChirp">
     <p class="author">@{{ chirp.author }} </p>
     <p class="chirpContent">

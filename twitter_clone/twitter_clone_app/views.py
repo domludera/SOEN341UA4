@@ -10,10 +10,6 @@ from django.contrib.auth.admin import User
 from .models import UserProfile
 
 
-def twitter(request):
-    return render(request, 'twitter_clone_app/my-profile.html')
-
-
 def registration(request):
     if request.method == 'POST':  # if method request is POST, enter this if statement
         form = UserCreationForm(request.POST)
@@ -35,13 +31,20 @@ def registration(request):
     return render(request, 'twitter_clone_app/registration.html', context)
 
 
-def my_profile(request, username):
+def profile(request, username):
     user_requested = User.objects.get(username=username)
     context = {
         'user_requested': user_requested,
         'chirpList': Chirp.objects.all()  # Take all the Chirp object from the database, and puts them into 1 variable
     }
-    return render(request, 'twitter_clone_app/my-profile.html', context)
+    if request.method == 'POST':
+        user = get_object_or_404(UserProfile, id=request.POST.get('follow'))  # get Models = POST
+        if user.followers.filter(id=request.user.id).exists():
+            user.followers.remove(request.user)  # If users exist, remove it from list
+        else:
+            user.followers.add(request.user)  # If users doesn't exist, add it to the list
+        return render(request, 'twitter_clone_app/profile.html', context)
+    return render(request, 'twitter_clone_app/profile.html', context)
 
 
 def users_profiles(request):
@@ -51,7 +54,7 @@ def users_profiles(request):
             user.followers.remove(request.user)  # If users exist, remove it from list
         else:
             user.followers.add(request.user)  # If users doesn't exist, add it to the list
-        return redirect('profiles')
+        return redirect('users_profiles')
     context = {
         'user_profile_list': User.objects.all(),
     }
