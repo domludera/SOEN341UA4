@@ -14,12 +14,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Font awesome -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <!-- Import css -->
-    <link rel="stylesheet" href="{% static 'twitter_clone_app/css/home.css' %}">
-    <!-- Vue.js -->
+    <link rel="stylesheet" href="{% static 'twitter_clone_app/css/style.css' %}">
+    <!-- Vue.js
     <script src="https://unpkg.com/vue"></script>
     <script src="//unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
     <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>
@@ -29,9 +33,43 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js"
             integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp"
             crossorigin="anonymous"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 </head>
 <body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-myblack sticky-top">
+    <a class="navbar-brand" href="/twitter/home/">Chirp.</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+      <span class="sr-only">(current)</span>
+        </li>
+      </ul>
+
+
+
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown" right>
+          <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            @{{ user.username }}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/twitter/my-profile/">Profile</a>
+            <a class="dropdown-item" href="#">Settings</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item logoutBtn" href="#">Logout</a>
+          </div>
+        </li>
+      </ul>
+
+
+
+    </div>
+  </nav>
 {% block content %}{% endblock content %}
 </body>
 </html>

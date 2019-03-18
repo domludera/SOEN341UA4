@@ -1,0 +1,49 @@
+.container {
+  color: white;
+  margin: 20px;
+}
+
+#feedChirp {
+  margin: auto;
+  border: var(--darkgrey) solid 1px;
+  border-radius: 5px;
+  background-color: var(--lightgrey);
+  padding: 1rem;
+}
+
+.author {
+  color: var(--darkergrey);
+}
+
+.chirpContent {
+  color: white;
+  font-size: 24px;
+}
+
+.profilePic {
+  border-radius: 50%;
+  height: 80px;
+  margin: auto;
+}
+
+.chirps {
+  max-width: 600px;
+  min-width: 200px;
+  margin: auto;
+  padding: auto;
+}
+
+.heart-btn {
+  color: grey;
+}
+
+.likebtn {
+  text-decoration: none;
+  background-color: inherit;
+  border: none;
+}
+
+td{
+  padding-left: 10px;
+  padding-right: 10px;
+}

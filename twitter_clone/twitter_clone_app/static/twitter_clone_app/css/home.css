@@ -1,31 +1,103 @@
-.logoutBtn{
-    text-decoration: none;
-    background-color: lightcoral;
-    color: white;
+.login_logo {
+  height: 80px;
 }
+
+.heart-btn {
+  color: grey;
+}
+
+.likebtn {
+  text-decoration: none;
+  background-color: inherit;
+  border: none;
+  color: var(--darkergrey)
+}
+
+.author {
+  color: var(--darkergrey);
+  font-weight: bold;
+}
+
+.date {
+  color: var(--grey);
+}
+
+.chirpContent {
+  color: white;
+  font-size: 24px;
+}
+
+.chirpFooter {
+  color: black;
+  display: flex;
+}
+
+.form-control {
+  border: 1px solid white;
+  color: white;
+  background-color: var(--grey);
+}
+
+.navbar-dark {
+  background-color: black;
+}
+
+#feedChirp {
+  margin: auto;
+  background-color: var(--lightgrey);
+  padding: 1rem;
+  border-bottom: 1px solid var(--darkergrey);
+}
+
+/*
+margin: auto;
+border: var(--darkgrey) solid 1px;
+border-radius: 5px;
+*/
+#userName {
+  color: white;
+}
+
+.profileSummary {
+  position: sticky;
+  top: 66px;
+}
+
+.profilePic {
+  height: 80px;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.feed {
+  top: 10px;
+}
+
+.jumbotron {
+  background-color: var(--lightgrey);
+}
+
+.no--deco {
+  text-decoration: none;
+  color: inherit;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid var(--darkgrey);
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
 .mainColumns{
     min-height: 100px;
     max-height: fit-content;
 }
 
-.jumbotron{
-    margin-top: 10px;
-    padding: 0;
-    background-color: white;
-}
-
-.feed{
-    margin-top: 5px;
-    background-color: white;
-    border-radius: 5px;
-}
-#feedChirp{
-    margin: auto;
-    padding: 1.5em;
-    border: aqua solid 1px;
-    border-radius: 5px;
-}
-
 #trendingChirps{
     color: darkslategrey;
 }
+*/

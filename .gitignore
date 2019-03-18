@@ -22,3 +22,5 @@ twitter_clone/twitter_clone/__pycache__/urls\.cpython-36\.pyc
 *.xml
 
 *.iml
+
+*.sh
