@@ -1,33 +1,62 @@
 {% extends "twitter_clone_app/template.html" %}
-
 {% load static %}
-
 {% block content %}
+<link rel="stylesheet" href="{% static 'twitter_clone_app/css/profile.css' %}">
 
-    <b-col class="mainColumns column1">
-        <div class="jumbotron">
-            {{ user_requested.username }}
-            <p>
-                Followers: {{ user_requested.userprofile.followers.all.count }} <!--Get the number of followers for a user profile -->
-            </p>
-        </div>
-    </b-col>
-    <b-col class="mainColumns column2" sm="6">
-        {% for chirp in chirpList reversed %}
-            {% if chirp.author.id == user_requested.id %}
-                <div id="feedChirp">
-                    <p> {{ chirp.author }}
-                        <br>
-                        {{ chirp.tweet_text }}
-                        <br><br>
-                        Number of like : {{ chirp.likes.all.count }}<br> <!-- Get the number of like for a Chirp -->
-                        <button name="chirp" value="{{ chirp.id }}" class="btn-primary">Like</button>
-                        </br>
-                        {{ chirp.date_posted }}
-                    </p>
-                </div>
-            {% endif %}
-        {% endfor %}
-    </b-col>
+
+<div class="container">
+  <table>
+    <tbody>
+      <tr>
+        <td rowspan="2">
+          <img class="profilePic" src="{% static 'twitter_clone_app/images/7160.jpg' %}" alt="profilePic">
+        </td>
+        <td>
+          <h1>
+            @{{ user.username }}
+          </h1>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>
+            <i class="fas fa-users"></i> {{ user.userprofile.followers.all.count }} &nbsp;
+            <i class="fas fa-heart heart-btn"></i> {{chirp.all.likes.all.count}} &nbsp;
+            <i class="fas fa-comment"></i> {{user.userprofile.chirp.all.count}}
+          </p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+
+
+
+
+
+<div class="cotainer chirps">
+
+
+  {% for chirp in chirpList reversed %}
+  {% if chirp.author.id == user.id %}
+  <div id="feedChirp">
+    <p class="author">@{{ chirp.author }} </p>
+    <p class="chirpContent">
+      {{ chirp.tweet_text }}
+    </p>
+    <p>
+      <button class="likebtn">
+        <i name="chirp" value="{{ chirp.id }}}" class="fas fa-heart"></i>
+      </button>
+      {{ chirp.likes.all.count }} <!-- Get the number of like for a Chirp -->
+    </p>
+    <hr>
+    {{ chirp.date_posted | date:"M d, Y" }}
+  </div>
+  {% endif %}
+  {% endfor %}
+</div>
 
 {% endblock content %}
