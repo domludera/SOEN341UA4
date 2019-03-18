@@ -6,15 +6,15 @@
 
     <b-col class="mainColumns column1">
         <div class="jumbotron">
-            {{ user.username }}
+            {{ user_requested.username }}
             <p>
-                Followers: {{ user.userprofile.followers.all.count }} <!--Get the number of followers for a user profile -->
+                Followers: {{ user_requested.userprofile.followers.all.count }} <!--Get the number of followers for a user profile -->
             </p>
         </div>
     </b-col>
     <b-col class="mainColumns column2" sm="6">
         {% for chirp in chirpList reversed %}
-            {% if chirp.author.id == user.id %}
+            {% if chirp.author.id == user_requested.id %}
                 <div id="feedChirp">
                     <p> {{ chirp.author }}
                         <br>

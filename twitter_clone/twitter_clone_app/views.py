@@ -35,8 +35,10 @@ def registration(request):
     return render(request, 'twitter_clone_app/registration.html', context)
 
 
-def my_profile(request):
+def my_profile(request, username):
+    user_requested = User.objects.get(username=username)
     context = {
+        'user_requested': user_requested,
         'chirpList': Chirp.objects.all()  # Take all the Chirp object from the database, and puts them into 1 variable
     }
     return render(request, 'twitter_clone_app/my-profile.html', context)
