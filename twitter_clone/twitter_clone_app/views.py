@@ -25,7 +25,7 @@ def registration(request):
     else:
         form = UserCreationForm()
     context = {
-        'title': 'Registration page',
+        'title': 'Registration',
         'form': form,
     }
     return render(request, 'twitter_clone_app/registration.html', context)
@@ -35,7 +35,8 @@ def profile(request, username):
     user_requested = User.objects.get(username=username)
     context = {
         'user_requested': user_requested,
-        'chirpList': Chirp.objects.all()  # Take all the Chirp object from the database, and puts them into 1 variable
+        'chirpList': Chirp.objects.all(),  # Take all the Chirp object from the database, and puts them into 1 variable
+        'title': user_requested.username,
     }
     if request.method == 'POST':
         user = get_object_or_404(UserProfile, id=request.POST.get('follow'))  # get Models = POST
@@ -47,20 +48,6 @@ def profile(request, username):
     return render(request, 'twitter_clone_app/profile.html', context)
 
 
-def users_profiles(request):
-    if request.method == 'POST':
-        user = get_object_or_404(UserProfile, id=request.POST.get('follow'))  # get Models = POST
-        if user.followers.filter(id=request.user.id).exists():
-            user.followers.remove(request.user)  # If users exist, remove it from list
-        else:
-            user.followers.add(request.user)  # If users doesn't exist, add it to the list
-        return redirect('users_profiles')
-    context = {
-        'user_profile_list': User.objects.all(),
-    }
-    return render(request, 'twitter_clone_app/users-profiles.html', context)
-
-
 class HomeView(ListView):
     model = Chirp
     template_name = 'twitter_clone_app/home.html'
@@ -69,7 +56,7 @@ class HomeView(ListView):
 
     def get(self, request):  # If GET, enter this function
         context = {
-            'title': 'Home page',
+            'title': 'Home',
             'chirpList': self.model.objects.all(),
             'form': self.form,
         }
@@ -84,7 +71,7 @@ class HomeView(ListView):
                 chirp.save()  # Add it to the databases
                 return redirect('home')
             context = {
-                'title': 'Home page',
+                'title': 'Home',
                 'chirpList': self.model.objects.all(),
                 'form': self.form,
             }
