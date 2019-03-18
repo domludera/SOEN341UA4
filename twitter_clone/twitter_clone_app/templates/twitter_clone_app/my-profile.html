@@ -13,16 +13,16 @@
         </td>
         <td>
           <h1>
-            @{{ user.username }}
+            @{{ user_requested.username }}
           </h1>
         </td>
       </tr>
       <tr>
         <td>
           <p>
-            <i class="fas fa-users"></i> {{ user.userprofile.followers.all.count }} &nbsp;
+            <i class="fas fa-users"></i> {{ user_requested.userprofile.followers.all.count }} &nbsp;
             <i class="fas fa-heart heart-btn"></i> {{chirp.all.likes.all.count}} &nbsp;
-            <i class="fas fa-comment"></i> {{user.userprofile.chirp.all.count}}
+            <i class="fas fa-comment"></i> {{user_requested.userprofile.chirp.all.count}}
           </p>
         </td>
       </tr>
