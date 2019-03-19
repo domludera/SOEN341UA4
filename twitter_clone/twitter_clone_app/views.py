@@ -58,6 +58,7 @@ class HomeView(ListView):
         context = {
             'title': 'Home',
             'chirpList': self.model.objects.all(),
+            'chirpListLiked': self.model.objects.filter(likes__id=request.user.id),
             'form': self.form,
         }
         return render(request, self.template_name, context)
@@ -84,3 +85,5 @@ class HomeView(ListView):
                 chirp_liked.likes.add(request.user)  # If user doesn't exist, add it to the db
 
             return redirect('home')
+
+
