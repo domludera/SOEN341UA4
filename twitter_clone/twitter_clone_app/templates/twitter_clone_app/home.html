@@ -1,95 +1,109 @@
 {% extends "twitter_clone_app/template.html" %}
 {% block content %}
-{% load static %}
-<link rel="stylesheet" href="{% static 'twitter_clone_app/css/home.css' %}">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'twitter_clone_app/css/home.css' %}">
 
 
-<!-- Html for the page -->
+    <!-- Html for the page -->
 
 
 
-<div class="container">
-  <div class="row" style="text-align: center">
+    <div class="container">
+        <div class="row" style="text-align: center">
 
-    <div class="col-sm-4">
-      <div class="jumbotron profileSummary">
-        <table>
-          <tbody>
-            <tr>
-              <td class="profilePic" rowspan="2">
-                <img class="profilePic" src="{% static 'twitter_clone_app/images/7160.jpg' %}" alt="profilePic">
-              </td>
-              <td>
-                <h3>
-                  <a class="no--deco" href="/twitter/my-profile/">@{{ user.username }}</a>
-                </h3>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>
-                  <i class="fas fa-users"></i> {{ user.userprofile.followers.all.count }} &nbsp;
-                  <i class="fas fa-heart"></i> {{ user.userprofile.likes.all.count}} &nbsp;
-                  <i class="fas fa-comment"></i> {{user.userprofile.chirp.all.count}}
-                </p>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+            <div class="col-sm-4">
+                <div class="jumbotron profileSummary">
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td class="profilePic" rowspan="2">
+                                <img class="profilePic" src="{% static 'twitter_clone_app/images/7160.jpg' %}"
+                                     alt="profilePic">
+                            </td>
+                            <td>
+                                <h3>
+                                    <a class="no--deco" href="/profile/{{ user.username }}/">@{{ user.username }}</a>
+                                </h3>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    <i class="fas fa-users"></i> {{ user.userprofile.followers.all.count }} &nbsp;
+                                    <i class="fas fa-heart"></i> {{ user.userprofile.likes.all.count }} &nbsp;
+                                    <i class="fas fa-comment"></i> {{ user.userprofile.chirp.all.count }}
+                                </p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
 
-        <br>
+                    <br>
 
-        <form class="form-group" method="post"> <!--Sends POST request with value post to views.py -->
-          {% csrf_token %}
-          <div class="input-group mb-3">
-            {{ form }}
-            <div class="input-group-append">
-              <button class="btn btn-outline-light" type="submit" name="post" value="post" id="button-addon2">Post!</button>
+                    <form class="form-group" method="post"> <!--Sends POST request with value post to views.py -->
+                        {% csrf_token %}
+                        <div class="input-group mb-3">
+                            {{ form }}
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-light" type="submit" name="post" value="post"
+                                        id="button-addon2">Post!
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-          </div>
-        </form>
-      </div>
+
+
+            <div class="col-sm-6 feed">
+
+
+                {% if messages %}
+                    {% for welcome_message in messages %}
+                        <div class="welcomeBanner">
+                            {{ welcome_message }}
+                            <!--If there is a message (first time user log in), print message -->
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+
+
+                <!-- Iterate threw post in database, in reverse-->
+                {% for chirp in chirpList reversed %}
+                    <script>userLikedPost = false;</script>
+                    <div id="feedChirp">
+                        <p class="author"><a href="/profile/{{ chirp.author }}/">{{ chirp.author }}</a> &#8226; <em
+                                class="date">{{ chirp.date_posted | date:"M d, Y" }}</em></p>
+                        <p class="chirpContent">
+                            {{ chirp.tweet_text }}
+                        </p>
+                        <form method="post">
+                            {% csrf_token %}
+                            {% for chirpLiked in chirpListLiked %}
+                                {% if chirpLiked == chirp %}
+                                    <button type="submit" name="chirp" value="{{ chirp.id }}" class="likebtn">
+                                        <i name="chirp" value="{{ chirp.id }}}" class="fas fa-heart heart-btn" style="font-size:15px;color:darkred"></i>
+                                        {{ chirp.likes.all.count }}
+                                    </button>
+                                    <script>userLikedPost = true</script>
+                                {% endif %}
+                            {% endfor %}
+                            <script>if (userLikedPost === false) {
+                                document.write("<button type=\"submit\" name=\"chirp\" value=\"{{ chirp.id }}\" class=\"likebtn\">\n" +
+                                    "                                        <i name=\"chirp\" value=\"{{ chirp.id }}}\" class=\"fas fa-heart heart-btn\" style=\"font-size:15px;color:grey\"></i>\n" +
+                                    "                                        {{ chirp.likes.all.count }}\n" +
+                                    "                                    </button>");
+                            } </script>
+
+                            <!--Creates a button that sends a POST request, with different ids -->
+                        </form>
+                    </div>
+                {% endfor %} <!-- end of iteration -->
+            </div>
+
+
+        </div>
     </div>
-
-
-
-    <div class="col-sm-6 feed">
-
-
-      {% if messages %}
-      {% for welcome_message in messages %}
-      <div class="welcomeBanner">
-        {{ welcome_message }}
-        <!--If there is a message (first time user log in), print message -->
-      </div>
-      {% endfor %}
-      {% endif %}
-
-
-
-      <!-- Iterate threw post in database, in reverse-->
-      {% for chirp in chirpList reversed %}
-      <div id="feedChirp">
-        <p class="author">@{{ chirp.author }} &#8226; <em class="date">{{ chirp.date_posted | date:"M d, Y" }}</i></p>
-        <p class="chirpContent">
-          {{ chirp.tweet_text }}
-        </p>
-          <form method="post">
-            {% csrf_token %}
-            <button type="submit" name="chirp" value="{{ chirp.id }}" class="likebtn">
-              <i name="chirp" value="{{ chirp.id }}}" class="fas fa-heart heart-btn"></i>
-              {{ chirp.likes.all.count }}
-            </button>
-
-            <!--Creates a button that sends a POST request, with different ids -->
-          </form>
-      </div>
-      {% endfor %} <!-- end of iteration -->
-    </div>
-
-
-
-  </div>
-</div>
 
 {% endblock content %}

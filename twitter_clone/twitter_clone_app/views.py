@@ -8,10 +8,11 @@ from .forms import HomeForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.admin import User
 from .models import UserProfile
+from django.http import HttpResponseRedirect
 
 
-def twitter(request):
-    return render(request, 'twitter_clone_app/my-profile.html')
+def login(request):
+    return HttpResponseRedirect('/login/')
 
 
 def registration(request):
@@ -29,31 +30,36 @@ def registration(request):
     else:
         form = UserCreationForm()
     context = {
-        'title': 'Registration page',
+        'title': 'registration',
         'form': form,
     }
     return render(request, 'twitter_clone_app/registration.html', context)
 
 
-def my_profile(request):
+def profile(request, username):
+    user_requested = User.objects.get(username=username)
     context = {
-        'chirpList': Chirp.objects.all()  # Take all the Chirp object from the database, and puts them into 1 variable
+        'user_requested': user_requested,
+        'chirpList': Chirp.objects.all(),  # Take all the Chirp object from the database, and puts them into 1 variable
+        'title': user_requested.username,
+        'chirpListLiked': Chirp.objects.filter(likes__id=request.user.id),
+        'userProfileFollowed': UserProfile.objects.filter(followers__id=request.user.id),
     }
-    return render(request, 'twitter_clone_app/my-profile.html', context)
-
-
-def users_profiles(request):
-    if request.method == 'POST':
+    if 'follow' in request.POST:
         user = get_object_or_404(UserProfile, id=request.POST.get('follow'))  # get Models = POST
         if user.followers.filter(id=request.user.id).exists():
             user.followers.remove(request.user)  # If users exist, remove it from list
         else:
             user.followers.add(request.user)  # If users doesn't exist, add it to the list
-        return redirect('profiles')
-    context = {
-        'user_profile_list': User.objects.all(),
-    }
-    return render(request, 'twitter_clone_app/users-profiles.html', context)
+        return render(request, 'twitter_clone_app/profile.html', context)
+    elif 'chirp' in request.POST:
+        chirp_liked = get_object_or_404(Chirp, id=request.POST.get('chirp'))
+        if chirp_liked.likes.filter(id=request.user.id).exists():
+            chirp_liked.likes.remove(request.user)  # If user exists, remove it from db
+        else:
+            chirp_liked.likes.add(request.user)  # If user doesn't exist, add it to the db
+        return render(request, 'twitter_clone_app/profile.html', context)
+    return render(request, 'twitter_clone_app/profile.html', context)
 
 
 class HomeView(ListView):
@@ -64,8 +70,9 @@ class HomeView(ListView):
 
     def get(self, request):  # If GET, enter this function
         context = {
-            'title': 'Home page',
+            'title': 'home',
             'chirpList': self.model.objects.all(),
+            'chirpListLiked': self.model.objects.filter(likes__id=request.user.id),
             'form': self.form,
         }
         return render(request, self.template_name, context)
@@ -79,8 +86,9 @@ class HomeView(ListView):
                 chirp.save()  # Add it to the databases
                 return redirect('home')
             context = {
-                'title': 'Home page',
+                'title': 'home',
                 'chirpList': self.model.objects.all(),
+                'chirpListLiked': self.model.objects.filter(likes__id=request.user.id),
                 'form': self.form,
             }
             return render(request, self.template_name, context)

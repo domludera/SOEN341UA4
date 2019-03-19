@@ -121,7 +121,7 @@ if os.getenv('BUILD_ON_TRAVIS', None):
 
     STATIC_URL = '/static/'
 
-    LOGIN_REDIRECT_URL = '/twitter/home'
+    LOGIN_REDIRECT_URL = '/home'
 else:  # pragma: no cover
     # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
@@ -236,4 +236,4 @@ else:  # pragma: no cover
 
     STATIC_URL = '/static/'
 
-    LOGIN_REDIRECT_URL = '/twitter/home'
+    LOGIN_REDIRECT_URL = '/home'
