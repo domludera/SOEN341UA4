@@ -1,63 +1,76 @@
 {% extends "twitter_clone_app/template.html" %}
 {% load static %}
 {% block content %}
-<link rel="stylesheet" href="{% static 'twitter_clone_app/css/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'twitter_clone_app/css/profile.css' %}">
 
 
-<div class="container">
-  <table>
-    <tbody>
-      <tr>
-        <td rowspan="2">
-          <img class="profilePic" src="{% static 'twitter_clone_app/images/7160.jpg' %}" alt="profilePic">
-        </td>
-        <td>
-          <h1>
-            @{{ user_requested.username }}
-          </h1>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p>
-            <i class="fas fa-users"></i> {{ user_requested.userprofile.followers.all.count }} &nbsp;
-            <i class="fas fa-heart heart-btn"></i> {{chirp.all.likes.all.count}} &nbsp;
-            <i class="fas fa-comment"></i> {{user_requested.userprofile.chirp.all.count}}
-          </p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-</div>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit" name="follow" value="{{ user_requested.userprofile.id }}" class="btn-primary">Follow this
-            user
-        </button>
-    </form>
-
-<div class="cotainer chirps">
+    <div class="container">
+        <table>
+            <tbody>
+            <tr>
+                <td rowspan="2">
+                    <img class="profilePic" src="{% static 'twitter_clone_app/images/7160.jpg' %}" alt="profilePic">
+                </td>
+                <td>
+                    <h1>
+                        @{{ user_requested.username }}
+                    </h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>
+                        <i class="fas fa-users"></i> {{ user_requested.userprofile.followers.all.count }} &nbsp;
+                    <form method="post">
+                        {% csrf_token %}
+                        <button type="submit" name="follow" value="{{ user_requested.userprofile.id }}" class="btn-primary">Follow this
+                            user
+                        </button>
+                    </form>
+                    </p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
 
 
-  {% for chirp in chirpList reversed %}
-  {% if chirp.author.id == user_requested.id %}
-  <div id="feedChirp">
-    <p class="author">@{{ chirp.author }} </p>
-    <p class="chirpContent">
-      {{ chirp.tweet_text }}
-    </p>
-    <p>
-      <button class="likebtn">
-        <i name="chirp" value="{{ chirp.id }}}" class="fas fa-heart"></i>
-      </button>
-      {{ chirp.likes.all.count }} <!-- Get the number of like for a Chirp -->
-    </p>
-    <hr>
-    {{ chirp.date_posted | date:"M d, Y" }}
-  </div>
-  {% endif %}
-  {% endfor %}
-</div>
+    <div class="container chirps">
+
+
+        {% for chirp in chirpList reversed %}
+            {% if chirp.author.id == user_requested.id %}
+                <script>userLikedPost = false;</script>
+                <div id="feedChirp">
+                <p class="author"><a href="/profile/{{ chirp.author }}/">{{ chirp.author }}</a> &#8226; <em
+                        class="date">{{ chirp.date_posted | date:"M d, Y" }}</em></p>
+                <p class="chirpContent">
+                    {{ chirp.tweet_text }}
+                </p>
+                <form method="post">
+                    {% csrf_token %}
+                    {% for chirpLiked in chirpListLiked %}
+                        {% if chirpLiked == chirp %}
+                            <button type="submit" name="chirp" value="{{ chirp.id }}" class="likebtn">
+                                <i name="chirp" value="{{ chirp.id }}}" class="fas fa-heart heart-btn"
+                                   style="font-size:15px;color:darkred"></i>
+                                {{ chirp.likes.all.count }}
+                            </button>
+                            <script>userLikedPost = true</script>
+                        {% endif %}
+                    {% endfor %}
+                    <script>if (userLikedPost === false) {
+                        document.write("<button type=\"submit\" name=\"chirp\" value=\"{{ chirp.id }}\" class=\"likebtn\">\n" +
+                            "                                        <i name=\"chirp\" value=\"{{ chirp.id }}}\" class=\"fas fa-heart heart-btn\" style=\"font-size:15px;color:grey\"></i>\n" +
+                            "                                        {{ chirp.likes.all.count }}\n" +
+                            "                                    </button>");
+                    } </script>
+                    <!--Creates a button that sends a POST request, with different ids -->
+                </form>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
 
 {% endblock content %}
