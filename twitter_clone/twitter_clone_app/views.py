@@ -38,6 +38,7 @@ def profile(request, username):
         'chirpList': Chirp.objects.all(),  # Take all the Chirp object from the database, and puts them into 1 variable
         'title': user_requested.username,
         'chirpListLiked': Chirp.objects.filter(likes__id=request.user.id),
+        'userProfileFollowed': UserProfile.objects.filter(followers__id=request.user.id),
     }
     if 'follow' in request.POST:
         user = get_object_or_404(UserProfile, id=request.POST.get('follow'))  # get Models = POST
