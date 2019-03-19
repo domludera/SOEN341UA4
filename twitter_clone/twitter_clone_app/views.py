@@ -8,6 +8,11 @@ from .forms import HomeForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.admin import User
 from .models import UserProfile
+from django.http import HttpResponseRedirect
+
+
+def login(request):
+    return HttpResponseRedirect('/login/')
 
 
 def registration(request):
@@ -25,7 +30,7 @@ def registration(request):
     else:
         form = UserCreationForm()
     context = {
-        'title': 'Registration',
+        'title': 'registration',
         'form': form,
     }
     return render(request, 'twitter_clone_app/registration.html', context)
@@ -65,7 +70,7 @@ class HomeView(ListView):
 
     def get(self, request):  # If GET, enter this function
         context = {
-            'title': 'Home',
+            'title': 'home',
             'chirpList': self.model.objects.all(),
             'chirpListLiked': self.model.objects.filter(likes__id=request.user.id),
             'form': self.form,
@@ -81,7 +86,7 @@ class HomeView(ListView):
                 chirp.save()  # Add it to the databases
                 return redirect('home')
             context = {
-                'title': 'Home',
+                'title': 'home',
                 'chirpList': self.model.objects.all(),
                 'chirpListLiked': self.model.objects.filter(likes__id=request.user.id),
                 'form': self.form,
@@ -95,5 +100,3 @@ class HomeView(ListView):
                 chirp_liked.likes.add(request.user)  # If user doesn't exist, add it to the db
 
             return redirect('home')
-
-

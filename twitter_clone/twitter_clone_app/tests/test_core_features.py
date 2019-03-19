@@ -12,7 +12,7 @@ class UserLogin(TestCase):
         User.objects.create_user(**self.credentials)
 
     def test_login(self):
-        response = self.client.post('/twitter/login/', self.credentials, follow=True)
+        response = self.client.post('/login/', self.credentials, follow=True)
         self.assertTrue(response.context['user'].is_authenticated)
 
 
@@ -25,7 +25,7 @@ class UserRegistration(TestCase):
         User.objects.create_user(**self.credentials)
 
     def test_registration(self):
-        response = self.client.post('/twitter/registration/', self.credentials, follow=True)
+        response = self.client.post('/registration/', self.credentials, follow=True)
         self.assertFalse(response.context['user'].is_authenticated)
 
 
@@ -83,8 +83,3 @@ class FollowUser(TestCase):
             'username': self.author,
             'followers': 0,
         }
-
-    def test_followers(self):
-        response = self.client.post('/twitter/users-profiles', self.credentials, follow=True)
-        self.assertEqual(self.follow_url.status_code, 200)
-        self.assertEqual(response.status_code, 200)
