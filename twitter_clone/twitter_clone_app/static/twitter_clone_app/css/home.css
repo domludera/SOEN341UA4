@@ -14,8 +14,16 @@
 }
 
 .author {
-  color: var(--darkergrey);
+  text-align: left;
+  color: var(--lightgrey);
   font-weight: bold;
+}
+
+.authorBanner {
+  background-color: var(--darkergrey);
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .date {
@@ -23,7 +31,12 @@
 }
 
 .chirpContent {
-  color: white;
+  background-color: var(--ligthergrey);
+  border-radius: 5px;
+  padding: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: black;
   font-size: 24px;
 }
 

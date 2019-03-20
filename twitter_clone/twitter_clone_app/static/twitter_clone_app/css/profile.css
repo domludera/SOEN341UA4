@@ -12,7 +12,15 @@
 }
 
 .author {
-  color: var(--darkergrey);
+  color: var(--lightgrey);
+}
+
+.authorBanner {
+  background-color: var(--darkergrey);
+  border-radius: 5px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .chirpContent {
