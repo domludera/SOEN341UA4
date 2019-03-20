@@ -21,7 +21,9 @@
             <tr>
                 <td>
                     <p>
-                        <i class="fas fa-users"></i> {{ user_requested.userprofile.followers.all.count }}
+                        <i class="fas fa-users"></i> {{ user_requested.userprofile.followers.all.count }} &nbsp;
+                        <i class="fas fa-heart"></i> {{ user.userprofile.likes.all.count }} &nbsp;
+                        <i class="fas fa-comment"></i> {{ user.userprofile.chirp.all.count }}
                     <form method="post">
                         {% csrf_token %}
                         {% for userProfile in userProfileFollowed %}
