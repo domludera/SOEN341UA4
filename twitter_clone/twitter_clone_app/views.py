@@ -5,7 +5,8 @@ from django.shortcuts import get_object_or_404
 from .models import Chirp
 from django.views.generic import ListView
 from .forms import HomeForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate
+from django.contrib.auth import login as auth_login
 from django.contrib.auth.admin import User
 from .models import UserProfile
 from django.http import HttpResponseRedirect
@@ -25,7 +26,7 @@ def registration(request):
             fresh_user = authenticate(username=form.cleaned_data['username'],  # Authenticate the user
                                       password=form.cleaned_data['password1'],
                                       )
-            login(request, fresh_user)  # Login the user, so there is no conflict
+            auth_login(request, fresh_user)  # Login the user, so there is no conflict
             return redirect('home')  # Redirect to home.html
     else:
         form = UserCreationForm()
