@@ -51,39 +51,19 @@
 
 
     <div class="container chirps">
-
-
-        {% for chirp in chirpList reversed %}
-            {% if chirp.author.id == user_requested.id %}
-                <script>userLikedPost = false;</script>
-                <div id="feedChirp">
-                    <p class="author"><a href="/profile/{{ chirp.author }}/">{{ chirp.author }}</a> &#8226; <em
-                            class="date">{{ chirp.date_posted | date:"M d, Y" }}</em></p>
-                    <p class="chirpContent">
-                        {{ chirp.tweet_text }}
-                    </p>
-                    <form method="post">
-                        {% csrf_token %}
-                        {% for chirpLiked in chirpListLiked %}
-                            {% if chirpLiked == chirp %}
-                                <button type="submit" name="chirp" value="{{ chirp.id }}" class="likebtn">
-                                    <i name="chirp" value="{{ chirp.id }}}" class="fas fa-heart heart-btn"
-                                       style="font-size:15px;color:darkred"></i>
-                                    {{ chirp.likes.all.count }}
-                                </button>
-                                <script>userLikedPost = true</script>
-                            {% endif %}
-                        {% endfor %}
-                        <script>if (userLikedPost === false) {
-                            document.write("<button type=\"submit\" name=\"chirp\" value=\"{{ chirp.id }}\" class=\"likebtn\">\n" +
-                                "                                        <i name=\"chirp\" value=\"{{ chirp.id }}}\" class=\"fas fa-heart heart-btn\" style=\"font-size:15px;color:grey\"></i>\n" +
-                                "                                        {{ chirp.likes.all.count }}\n" +
-                                "                                    </button>");
-                        } </script>
-                        <!--Creates a button that sends a POST request, with different ids -->
-                    </form>
-                </div>
-            {% endif %}
+        {% for chirpLiked in chirpListLiked reversed %}
+            <div id="feedChirp">
+                <p class="author"><a href="/profile/{{ chirpLiked.author }}/">{{ chirpLiked.author }}</a> &#8226; <em
+                        class="date">{{ chirpLiked.date_posted | date:"M d, Y" }}</em></p>
+                <p class="chirpContent">
+                    {{ chirpLiked.tweet_text }}
+                </p>
+                <form>
+                        <i name="chirp" value="{{ chirpLiked.id }}}" class="fas fa-heart heart-btn"
+                           style="font-size:15px;color:darkred"></i>
+                        {{ chirpLiked.likes.all.count }}
+                </form>
+            </div>
         {% endfor %}
     </div>
 
