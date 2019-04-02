@@ -35,8 +35,6 @@ To Develop a Twitter-like Website which allows users to conduct basic features l
 * CSS
 * Javascript
 * Bootstrap
-* PHP
-* Vue JS
 
 ### Back End
 * Django (Python)
