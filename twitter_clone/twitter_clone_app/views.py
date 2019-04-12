@@ -31,7 +31,7 @@ def registration(request):
     else:
         form = UserCreationForm()
     context = {
-        'title': 'registration',
+        'title': 'Chirp | Registration',
         'form': form,
     }
     return render(request, 'twitter_clone_app/registration.html', context)
@@ -42,9 +42,10 @@ def profile(request, username):
     context = {
         'user_requested': user_requested,
         'chirpList': Chirp.objects.all(),  # Take all the Chirp object from the database, and puts them into 1 variable
-        'title': user_requested.username,
+        'title': 'Chirp |'+user_requested.username,
         'chirpListLiked': Chirp.objects.filter(likes__id=user_requested.id),
         'userProfileFollowed': UserProfile.objects.filter(followers__id=request.user.id),
+        'chirpListPosted': Chirp.objects.filter(author__id=user_requested.id),
     }
     if 'follow' in request.POST:
         user = get_object_or_404(UserProfile, id=request.POST.get('follow'))  # get Models = POST
@@ -71,10 +72,11 @@ class HomeView(ListView):
 
     def get(self, request):  # If GET, enter this function
         context = {
-            'title': 'Chirp.',
+            'title': 'Chirp | Homepage',
             'chirpList': self.model.objects.all(),
             'chirpListLiked': self.model.objects.filter(likes__id=request.user.id),
             'form': self.form,
+            'chirpListPosted': self.model.objects.filter(author__id=request.user.id),
         }
         return render(request, self.template_name, context)
 
@@ -87,10 +89,11 @@ class HomeView(ListView):
                 chirp.save()  # Add it to the databases
                 return redirect('home')
             context = {
-                'title': 'home',
+                'title': 'Chirp | Homepage',
                 'chirpList': self.model.objects.all(),
                 'chirpListLiked': self.model.objects.filter(likes__id=request.user.id),
                 'form': self.form,
+                'chirpListPosted': self.model.objects.filter(author__id=request.user.id),
             }
             return render(request, self.template_name, context)
         elif 'chirp' in request.POST:  # if POST method concerns the chirp itself

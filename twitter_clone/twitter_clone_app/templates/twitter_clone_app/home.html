@@ -30,8 +30,8 @@
                             <td>
                                 <p>
                                     <i class="fas fa-users"></i> {{ user.userprofile.followers.all.count }} &nbsp;
-                                    <i class="fas fa-heart"></i> {{ user.userprofile.likes.all.count }} &nbsp;
-                                    <i class="fas fa-comment"></i> {{ user.userprofile.chirp.all.count }}
+                                    <i class="fas fa-heart"></i> {{ user.likes.all.count }} &nbsp;
+                                    <i class="fas fa-comment"></i> {{ chirpListPosted.all.count }}
                                 </p>
                             </td>
                         </tr>
