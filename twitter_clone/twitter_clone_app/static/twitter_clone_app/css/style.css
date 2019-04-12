@@ -19,3 +19,8 @@ a .logoutBtn{
 nav {
   background-color: rgb(29, 29, 29);
 }
+
+.logoutBtn {
+  background-color: rgba(163, 0, 0, 0.5);
+  color: white;
+}

@@ -71,7 +71,7 @@ class HomeView(ListView):
 
     def get(self, request):  # If GET, enter this function
         context = {
-            'title': 'home',
+            'title': 'Chirp.',
             'chirpList': self.model.objects.all(),
             'chirpListLiked': self.model.objects.filter(likes__id=request.user.id),
             'form': self.form,
