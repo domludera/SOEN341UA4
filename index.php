@@ -1,0 +1,1 @@
+<?php header( 'Location: \ENV_WIN\Lib\site-packages\django\contrib\admindocs\templates\admin_doc/index.html' ) ;  ?>
