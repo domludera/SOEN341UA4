@@ -42,7 +42,7 @@ def profile(request, username):
     context = {
         'user_requested': user_requested,
         'chirpList': Chirp.objects.all(),  # Take all the Chirp object from the database
-        'title': 'Chirp |'+user_requested.username,
+        'title': 'Chirp |' + user_requested.username,
         'chirpListLiked': Chirp.objects.filter(likes__id=user_requested.id),
         'userProfileFollowed': UserProfile.objects.filter(followers__id=request.user.id),
         'chirpListPosted': Chirp.objects.filter(author__id=user_requested.id),
