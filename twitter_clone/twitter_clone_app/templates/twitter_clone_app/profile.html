@@ -22,6 +22,8 @@
                 <td>
                     <p>
                         <i class="fas fa-users"></i> {{ user_requested.userprofile.followers.all.count }}
+                        <i class="fas fa-heart"></i> {{ user_requested.likes.all.count }} &nbsp;
+                        <i class="fas fa-comment"></i> {{ chirpListPosted.all.count }}
                     <form method="post">
                         {% csrf_token %}
                         {% for userProfile in userProfileFollowed %}
@@ -59,9 +61,9 @@
                     {{ chirpLiked.tweet_text }}
                 </p>
                 <form>
-                        <i name="chirp" value="{{ chirpLiked.id }}}" class="fas fa-heart heart-btn"
-                           style="font-size:15px;color:darkred"></i>
-                        {{ chirpLiked.likes.all.count }}
+                    <i name="chirp" value="{{ chirpLiked.id }}}" class="fas fa-heart heart-btn"
+                       style="font-size:15px;color:darkred"></i>
+                    {{ chirpLiked.likes.all.count }}
                 </form>
             </div>
         {% endfor %}
